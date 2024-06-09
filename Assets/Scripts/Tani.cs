@@ -7,9 +7,10 @@ public class Tani : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        // ƒRƒƒ“ƒg‚ÌƒkƒVB
+        // ï¿½Rï¿½ï¿½ï¿½ï¿½ï¿½gï¿½Ìƒkï¿½Vï¿½B
         // nusi
         // tani1
+        // Tani2
     }
 
     // Update is called once per frame
