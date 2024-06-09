@@ -9,6 +9,7 @@ public class Tani : MonoBehaviour
     {
         // コメントのヌシ。
         // nusi
+        // tani1
     }
 
     // Update is called once per frame
