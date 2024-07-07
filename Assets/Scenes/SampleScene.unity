@@ -984,11 +984,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 634f1e5fcec6efc478a19a7a1885bc71, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life_1: {fileID: 491506688}
-  Life_2: {fileID: 339272993}
-  Life_3: {fileID: 33951886}
-  Life_4: {fileID: 437579278}
-  Life_5: {fileID: 45181303}
+  Life:
+  - {fileID: 491506688}
+  - {fileID: 339272993}
+  - {fileID: 33951886}
+  - {fileID: 437579278}
+  - {fileID: 45181303}
   textGameOver: {fileID: 2104441600}
 --- !u!114 &1272392167
 MonoBehaviour:
