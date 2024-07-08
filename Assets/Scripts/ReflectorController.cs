@@ -6,7 +6,7 @@ public class ReflectorController : MonoBehaviour
 {
     public float lifeTime = 5.0f; // ブロックが存在する時間（秒）
     // このタグを持つオブジェクトと衝突した場合に削除する
-    public string targetTag = "Player";
+    public string targetTag = "Enemy";
 
     void Start()
     {
