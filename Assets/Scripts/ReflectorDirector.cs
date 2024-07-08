@@ -16,7 +16,12 @@ public class ReflectorDirector : MonoBehaviour
     {
         timer -= Time.deltaTime;
 
-        if (Input.GetMouseButtonDown(0)) // 左クリックを検出
+        if (Input.GetMouseButtonDown(0))
+        {
+            ShowObject();
+        }
+
+        if (Input.GetMouseButtonUp(0)) // 左クリックを検出
         {
            
 
@@ -31,6 +36,13 @@ public class ReflectorDirector : MonoBehaviour
             }
         }
     }
-  
-    
+    void ShowObject()
+    {
+        if (blockPrefab != null)
+        {
+            blockPrefab.SetActive(true);
+            
+        }
+    }
+
 }
