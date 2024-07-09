@@ -16,17 +16,8 @@ public class ReflectorDirector : MonoBehaviour
     void Update()
     {
         timer -= Time.deltaTime;
-<<<<<<< HEAD
-
-        if (Input.GetMouseButtonDown(0))
-        {
-            ShowObject();
-        }
-
-        if (Input.GetMouseButtonUp(0)) // 左クリックを検出
-=======
         if (timer < 0)
->>>>>>> ad9ff9d94cdfc5a7fc1d4da31fe992e6eb1dabc6
+
         {
             // マウスの左ボタンが押されている間
             if (Input.GetMouseButton(0))
@@ -71,16 +62,9 @@ public class ReflectorDirector : MonoBehaviour
             }
         }
     }
-<<<<<<< HEAD
-    void ShowObject()
-    {
-        if (blockPrefab != null)
-        {
-            blockPrefab.SetActive(true);
-            
-        }
-    }
-=======
->>>>>>> ad9ff9d94cdfc5a7fc1d4da31fe992e6eb1dabc6
+
+   
+
+
 
 }
