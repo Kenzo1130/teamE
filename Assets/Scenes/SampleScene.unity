@@ -152,7 +152,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefab: {fileID: 0}
-  timerMax: 1
+  resetTime: 3
 --- !u!4 &401532801
 Transform:
   m_ObjectHideFlags: 0
