@@ -42,10 +42,10 @@ public class ReflectorDirector : MonoBehaviour
             // マウスの左ボタンが離された時
             isMouseDown = false;
 
-            // プレハブを一定時間後に消去するコルーチンを開始
+            // コライダーを無効にしたまま一定時間後にプレハブを消去するコルーチンを開始
             StartCoroutine(DestroyInstanceAfterTime(destroyTime));
 
-            // コライダー有効化前の衝突チェックコルーチンを開始
+            // 衝突チェックコルーチンを開始
             StartCoroutine(CheckForCollisionBeforeEnableCollider());
 
             // プレハブをリセットするコルーチンを開始
