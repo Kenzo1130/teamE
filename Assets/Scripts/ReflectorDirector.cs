@@ -15,6 +15,8 @@ public class ReflectorDirector : MonoBehaviour
     private bool isWaiting = false;   // 一時停止中かどうか
     private Collider2D currentCollider;   // 現在のプレハブのコライダー
 
+    private Vector3 lastMousePosition;   // マウスが離された時の位置
+
     void Start()
     {
         // プレハブのインスタンスを任意の初期位置に配置
@@ -42,6 +44,9 @@ public class ReflectorDirector : MonoBehaviour
             // マウスの左ボタンが離された時
             isMouseDown = false;
 
+            // プレハブを固定して移動を無効化
+            currentInstance.transform.position = lastMousePosition;
+
             // コライダーを無効にしたまま一定時間後にプレハブを消去するコルーチンを開始
             StartCoroutine(DestroyInstanceAfterTime(destroyTime));
 
@@ -62,6 +67,7 @@ public class ReflectorDirector : MonoBehaviour
             {
                 isMouseDown = true;
                 currentCollider.enabled = false; // マウスで持っている間はコライダーを無効化
+                lastMousePosition = mousePosition; // マウスが離された時の位置を保存
             }
         }
     }
