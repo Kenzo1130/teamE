@@ -61,6 +61,7 @@ public class ReflectorDirector : MonoBehaviour
             if (currentCollider != null && currentCollider.OverlapPoint(mousePosition))
             {
                 isMouseDown = true;
+                currentCollider.enabled = false; // マウスで持っている間はコライダーを無効化
             }
         }
     }
