@@ -271,10 +271,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be2ac28e7234c41469d82b09c8b92f1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefab: {fileID: 8294306711048244011, guid: 406f3a3479ccb1a4aac12afaf30ec8be, type: 3}
-  initialPosition: {x: 1, y: 1, z: 0}
+  prefab: {fileID: 8412287997317714098, guid: 0ee9334c5b948d74b9b32a87dd9b2dab, type: 3}
+  initialPosition: {x: 3, y: 3, z: 0}
   resetTime: 3
-  destroyTime: 5
+  destroyTime: 3
   targetTag: Enemy
   enemyTag: Enemy
   bletTag: Blet
