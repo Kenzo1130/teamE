@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class ReflectorDirector : MonoBehaviour
 {
+    // インスペクタで設定するフィールド
     public GameObject prefab;   // 使用するプレハブ
     public Vector3 initialPosition = new Vector3(1.0f, 1.0f, 0); // 任意の初期位置
     public float resetTime = 3.0f;   // リセットまでの時間
     public float destroyTime = 5.0f; // プレハブが消えるまでの時間
     public string targetTag = "Target";   // 衝突対象のタグ
+    public string enemyTag = "Enemy";     // 敵のタグ
+    public string bletTag = "Blet";       // 無視するタグ
 
     private GameObject currentInstance;   // 現在のプレハブインスタンス
     private bool isMouseDown = false;   // マウスが押されているかどうか
@@ -41,6 +44,12 @@ public class ReflectorDirector : MonoBehaviour
         {
             // マウスの左ボタンが離された時
             isMouseDown = false;
+
+            // コライダーを有効化
+            if (currentCollider != null)
+            {
+                currentCollider.enabled = true;
+            }
 
             // プレハブを一定時間後に消去するコルーチンを開始
             StartCoroutine(DestroyInstanceAfterTime(destroyTime));
@@ -79,7 +88,7 @@ public class ReflectorDirector : MonoBehaviour
 
         // 衝突処理を担当するコンポーネントを追加
         ReflectorController collisionHandler = currentInstance.AddComponent<ReflectorController>();
-        collisionHandler.Initialize(this, targetTag);
+        collisionHandler.Initialize(this, targetTag, enemyTag, bletTag);
     }
 
     // 一定時間後にプレハブを元の位置に戻すコルーチン
@@ -117,7 +126,7 @@ public class ReflectorDirector : MonoBehaviour
 
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.CompareTag(targetTag))
+                if (hitCollider.CompareTag(targetTag) || hitCollider.CompareTag(enemyTag))
                 {
                     DestroyCurrentInstance();
                     yield break;

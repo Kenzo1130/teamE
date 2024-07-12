@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 2366832007481476558}
   - component: {fileID: 6869450681255265082}
   - component: {fileID: 5736832407036011941}
-  - component: {fileID: 3130182304832561855}
+  - component: {fileID: -80100739558222667}
   m_Layer: 0
   m_Name: Enemy (prototype)_0
   m_TagString: Enemy
@@ -144,7 +144,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2.95, y: 2.13}
   m_EdgeRadius: 0
---- !u!50 &3130182304832561855
+--- !u!50 &-80100739558222667
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0
@@ -156,10 +156,10 @@ Rigidbody2D:
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
   m_UseAutoMass: 0
-  m_Mass: 6.2835007
+  m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 0
+  m_GravityScale: 1
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2
