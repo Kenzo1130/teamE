@@ -4,19 +4,18 @@ using UnityEngine;
 
 public class ReflectorDirector : MonoBehaviour
 {
-    // インスペクタで設定するフィールド
     public GameObject prefab;   // 使用するプレハブ
     public Vector3 initialPosition = new Vector3(1.0f, 1.0f, 0); // 任意の初期位置
     public float resetTime = 3.0f;   // リセットまでの時間
     public float destroyTime = 5.0f; // プレハブが消えるまでの時間
     public string targetTag = "Target";   // 衝突対象のタグ
-    public string enemyTag = "Enemy";     // 敵のタグ
-    public string bletTag = "Blet";       // 無視するタグ
 
     private GameObject currentInstance;   // 現在のプレハブインスタンス
     private bool isMouseDown = false;   // マウスが押されているかどうか
     private bool isWaiting = false;   // 一時停止中かどうか
     private Collider2D currentCollider;   // 現在のプレハブのコライダー
+
+    private Vector3 lastMousePosition;   // マウスが離された時の位置
 
     void Start()
     {
@@ -45,16 +44,13 @@ public class ReflectorDirector : MonoBehaviour
             // マウスの左ボタンが離された時
             isMouseDown = false;
 
-            // コライダーを有効化
-            if (currentCollider != null)
-            {
-                currentCollider.enabled = true;
-            }
+            // プレハブを固定して移動を無効化
+            currentInstance.transform.position = lastMousePosition;
 
-            // プレハブを一定時間後に消去するコルーチンを開始
+            // コライダーを無効にしたまま一定時間後にプレハブを消去するコルーチンを開始
             StartCoroutine(DestroyInstanceAfterTime(destroyTime));
 
-            // コライダー有効化前の衝突チェックコルーチンを開始
+            // 衝突チェックコルーチンを開始
             StartCoroutine(CheckForCollisionBeforeEnableCollider());
 
             // プレハブをリセットするコルーチンを開始
@@ -71,6 +67,7 @@ public class ReflectorDirector : MonoBehaviour
             {
                 isMouseDown = true;
                 currentCollider.enabled = false; // マウスで持っている間はコライダーを無効化
+                lastMousePosition = mousePosition; // マウスが離された時の位置を保存
             }
         }
     }
@@ -88,7 +85,7 @@ public class ReflectorDirector : MonoBehaviour
 
         // 衝突処理を担当するコンポーネントを追加
         ReflectorController collisionHandler = currentInstance.AddComponent<ReflectorController>();
-        collisionHandler.Initialize(this, targetTag, enemyTag, bletTag);
+        collisionHandler.Initialize(this, targetTag);
     }
 
     // 一定時間後にプレハブを元の位置に戻すコルーチン
@@ -126,7 +123,7 @@ public class ReflectorDirector : MonoBehaviour
 
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.CompareTag(targetTag) || hitCollider.CompareTag(enemyTag))
+                if (hitCollider.CompareTag(targetTag))
                 {
                     DestroyCurrentInstance();
                     yield break;
