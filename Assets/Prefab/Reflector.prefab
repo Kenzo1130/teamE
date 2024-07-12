@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3894160179358338277}
   - component: {fileID: 197741024777432581}
-  - component: {fileID: -1189857389264154120}
+  - component: {fileID: -2931780029841643638}
   m_Layer: 0
   m_Name: Reflector
   m_TagString: Untagged
@@ -85,7 +85,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &-1189857389264154120
+--- !u!61 &-2931780029841643638
 BoxCollider2D:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
