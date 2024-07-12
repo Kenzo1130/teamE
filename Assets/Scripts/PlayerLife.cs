@@ -19,10 +19,12 @@ public class PlayerLifeController : MonoBehaviour
     {
         if (collision.CompareTag("Enemy"))
         {
-
+            //Žc‹@‚ðŒ¸‚ç‚·
             life--;
+
             //“G‚ð”j‰ó‚·‚é
             Destroy(collision.gameObject);
+           
             for(int i = 0;i < Life.Length; i++)
             {
                 Life[i].SetActive(i < life);
