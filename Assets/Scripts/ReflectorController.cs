@@ -4,30 +4,26 @@ using UnityEngine;
 
 public class ReflectorController : MonoBehaviour
 {
-    private ReflectorDirector spawner;   // 親スクリプトへの参照
-    private string targetTag;   // 衝突対象のタグ
-    private string enemyTag;    // 敵のタグ
-    private string bletTag;     // 無視するタグ
+    public float lifeTime = 5.0f; // ブロックが存在する時間（秒）
+    // このタグを持つオブジェクトと衝突した場合に削除する
+    public string targetTag = "Enemy";
 
-    // 初期化メソッド
-    public void Initialize(ReflectorDirector spawner, string targetTag, string enemyTag, string bletTag)
+    void Start()
     {
-        this.spawner = spawner;
-        this.targetTag = targetTag;
-        this.enemyTag = enemyTag;
-        this.bletTag = bletTag;
+        Destroy(gameObject, lifeTime); // 一定時間後に自身を破壊
     }
 
-    // 衝突検出メソッド
+    private void Update()
+    {
+        
+    }
+
     void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(targetTag) || collision.gameObject.CompareTag(enemyTag))
+        if (collision.gameObject.CompareTag(targetTag))
         {
-            spawner.DestroyCurrentInstance();
-        }
-        else if (collision.gameObject.CompareTag(bletTag))
-        {
-            // Bletタグの物体との衝突時には何もしない
+            // ターゲットタグを持つオブジェクトと衝突した場合、このゲームオブジェクトを破壊する
+            Destroy(gameObject);
         }
     }
 }
