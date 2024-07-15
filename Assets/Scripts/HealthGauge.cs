@@ -3,7 +3,7 @@ using UnityEngine.UI;
 
 public class HealthGauge : MonoBehaviour
 {
-    public Transform target; // HPバーを表示する対象のTransform
+    [SerializeField] Transform target; // HPバーを表示する対象のTransform
     public Vector3 offset; // 対象の頭上にHPバーを表示するためのオフセット
     public Image foregroundImage; // HPバーの前景のImage
     public Transform cam; // カメラのTransform

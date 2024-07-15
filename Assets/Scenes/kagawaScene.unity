@@ -706,11 +706,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!4 &591721933 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 2085013841609368062, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
-  m_PrefabInstance: {fileID: 1791033808}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1 &624765651
 GameObject:
   m_ObjectHideFlags: 0
@@ -1346,13 +1341,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1868111512}
-  - component: {fileID: 1868111514}
   - component: {fileID: 1868111513}
   - component: {fileID: 1868111515}
   - component: {fileID: 1868111516}
+  - component: {fileID: 1868111517}
   m_Layer: 0
   m_Name: GameDirector
-  m_TagString: Untagged
+  m_TagString: Finish
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1384,24 +1379,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f4e42f2d1fa47674abd08be59c51c962, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
---- !u!114 &1868111514
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1868111509}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: be2ac28e7234c41469d82b09c8b92f1f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  prefab: {fileID: 8412287997317714098, guid: 0ee9334c5b948d74b9b32a87dd9b2dab, type: 3}
-  initialPosition: {x: 13, y: 5, z: 0}
-  resetTime: 3
-  destroyTime: 3
-  targetTag: Enemy
-  bletTag: Blet
 --- !u!114 &1868111515
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1428,6 +1405,24 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 454246016}
+--- !u!114 &1868111517
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1868111509}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cc2627889d208d41a8173ecbe07b66f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefab: {fileID: 8412287997317714098, guid: 0ee9334c5b948d74b9b32a87dd9b2dab, type: 3}
+  initialPosition: {x: 1, y: 1, z: 0}
+  resetTime: 3
+  destroyTime: 5
+  targetTag: Enemy
+  bletTag: FInish
 --- !u!1 &1891588489
 GameObject:
   m_ObjectHideFlags: 0
@@ -1765,7 +1760,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4e68e812551b17844bbb9a482dc3a93a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  target: {fileID: 591721933}
+  target: {fileID: 2085013841609368062, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
   offset: {x: 0, y: 2, z: 0}
   foregroundImage: {fileID: 4961182812104026965}
   cam: {fileID: 308424968}
