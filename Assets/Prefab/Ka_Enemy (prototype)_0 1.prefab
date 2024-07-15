@@ -186,10 +186,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHP: 100
   healthGauge: {fileID: 0}
-  damage: 10
+  Emdamage: 10
   targetag: FInish
-  damageMultiplier: 1.5
+  EmdamageMultiplier: 1.5
   itemPrefabs: []
   dropProbability: 0.5
   dropSpeed: 5
   animator: {fileID: 0}
+  scoreValue: 10
