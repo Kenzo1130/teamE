@@ -1,18 +1,36 @@
 using UnityEngine;
 using UnityEngine.TextCore.Text;
+using UnityEngine.UI;
 
 public class EnemyHP : MonoBehaviour
 {
     public float maxHP = 100f;
     private float currentHP;
     public HealthGauge healthGauge;
-    public float Emdamage = 10f;              // 敵が与えるダメージ量（敵の場合）
-    public string targetag = "target";      // このキャラクターが敵かどうか
-    public float EmdamageMultiplier = 1.5f;   // 残りHPにかける数
-    public GameObject[] itemPrefabs;        // アイテムのプレハブ配列
-    public float dropProbability = 0.5f;    // アイテムをドロップする確率
-    public float dropSpeed = 5f;            // 落下スピード
-    public Animator animator;               // Animatorを追加
+
+    // 敵が与えるダメージ量（敵の場合）
+    public float Emdamage = 10f;
+
+    // このキャラクターが敵かどうか
+    public string targetag = "target";
+    
+    // 残りHPにかける数
+    public float EmdamageMultiplier = 1.5f;
+    
+    // アイテムのプレハブ配列
+    public GameObject[] itemPrefabs;
+
+    // アイテムをドロップする確率
+    public float dropProbability = 0.5f;
+
+    // 落下スピード
+    public float dropSpeed = 5f;
+
+    // Animatorを追加
+    public Animator animator;
+
+    // 物体が消えたときに加算するスコア
+    public int scoreValue = 10; 
 
 
     private void Start()
@@ -51,17 +69,29 @@ public class EnemyHP : MonoBehaviour
         // 通常の死亡モーション
         //animator.SetTrigger("Die");
 
-        // アイテムを落下させる
+        // スコアを加算
+        ScoreManager.instance.AddScore(scoreValue);
+
+        // 1秒後にオブジェクトを破壊
         Destroy(gameObject,1f);
+
+        // アイテムを落下させる
         TryDropItem();
     }
 
     void PlaySpecialDieAnimation()
     {
+        // 特別な死亡モーション
         //animator.SetTrigger("Explode");
+
+        // スコアを加算
+        ScoreManager.instance.AddScore(scoreValue);
+
+        // 1秒後にオブジェクトを破壊
         Destroy(gameObject,1f);
-        TryDropItem();
-        
+
+        // アイテムを落下させる
+        TryDropItem();  
     }
 
     void TryDropItem()

@@ -1,17 +1,33 @@
+using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
 using UnityEngine;
+using UnityEngine.UIElements;
 
 public class PlayerLifeController : MonoBehaviour
 {
     public GameObject[] Life;
     public GameObject textGameOver;
 
-    private int life = 5;
+    int life;
 
+    void Start()
+    {
+        life = Life.Length;
+        textGameOver.SetActive(false);
+    }
     void Update()
     {
- 
+        for (int i = 0; i < Life.Length; i++)
+        {
+            Life[i].SetActive(i < life);
+        }
+        if (life == 0)
+        {
+            ShowGameOver();
+        }
+
+        Debug.Log(""+life);
     }
 
     //“G‚ÆÕ“Ë‚µ‚½‚Æ‚«‚Ìˆ—
@@ -23,20 +39,7 @@ public class PlayerLifeController : MonoBehaviour
             life--;
 
             //“G‚ð”j‰ó‚·‚é
-            Destroy(collision.gameObject);
-           
-            for(int i = 0;i < Life.Length; i++)
-            {
-                Life[i].SetActive(i < life);
-            }
-            if (life == 0)
-            {
-                ShowGameOver();
-            }
-        }
-        if(life < 0)
-        {
-            life = 0;
+            Destroy(collision.gameObject); 
         }
     }
 
@@ -44,7 +47,11 @@ public class PlayerLifeController : MonoBehaviour
     {
         textGameOver.SetActive(true);
     }
-
+    public void Heal(int healAmount)
+    {
+        life += healAmount;
+        if (life > Life.Length) life = Life.Length;
+    }
 }
 
 
