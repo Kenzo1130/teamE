@@ -26,8 +26,6 @@ public class PlayerLifeController : MonoBehaviour
         {
             ShowGameOver();
         }
-
-        Debug.Log(""+life);
     }
 
     //“G‚ÆÕ“Ë‚µ‚½‚Æ‚«‚Ìˆ—
