@@ -12,11 +12,12 @@ public class EnemyHP : MonoBehaviour
     public float Emdamage = 10f;
 
     // このキャラクターが敵かどうか
-    public string targetag = "target";
-    
+    public string bulletTag = "Bullet";
+    public string reflectorg = "Reflector";
+
     // 残りHPにかける数
     public float EmdamageMultiplier = 1.5f;
-    
+
     // アイテムのプレハブ配列
     public GameObject[] itemPrefabs;
 
@@ -30,7 +31,7 @@ public class EnemyHP : MonoBehaviour
     public Animator animator;
 
     // 物体が消えたときに加算するスコア
-    public int scoreValue = 10; 
+    public int scoreValue = 10;
 
 
     private void Start()
@@ -41,9 +42,13 @@ public class EnemyHP : MonoBehaviour
     private void OnCollisionEnter2D(Collision2D collision)
     {
         // 敵がプレイヤーにダメージを与える
-        if (collision.gameObject.CompareTag(targetag))
+        if (collision.gameObject.CompareTag(bulletTag))
         {
             TakeDamage(Emdamage);
+        }
+        else if (collision.gameObject.CompareTag(reflectorg))
+        {
+            // Bletタグの物体との衝突時には何もしない
         }
     }
     public void TakeDamage(float Emdamage)
@@ -73,7 +78,7 @@ public class EnemyHP : MonoBehaviour
         ScoreManager.instance.AddScore(scoreValue);
 
         // 1秒後にオブジェクトを破壊
-        Destroy(gameObject,1f);
+        Destroy(gameObject, 1f);
 
         // アイテムを落下させる
         TryDropItem();
@@ -88,10 +93,10 @@ public class EnemyHP : MonoBehaviour
         ScoreManager.instance.AddScore(scoreValue);
 
         // 1秒後にオブジェクトを破壊
-        Destroy(gameObject,1f);
+        Destroy(gameObject, 1f);
 
         // アイテムを落下させる
-        TryDropItem();  
+        TryDropItem();
     }
 
     void TryDropItem()

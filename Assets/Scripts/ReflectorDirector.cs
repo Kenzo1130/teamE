@@ -8,7 +8,7 @@ public class ReflectorDirector : MonoBehaviour
     public Vector3 initialPosition = new Vector3(1.0f, 1.0f, 0); // 任意の初期位置
     public float resetTime = 3.0f;   // リセットまでの時間
     public float destroyTime = 5.0f; // プレハブが消えるまでの時間
-    public string targetTag = "Target";   // 衝突対象のタグ
+    public string EnemyTag = "Enemy";   // 衝突対象のタグ
     public string bletTag = "Blet";       // 無視するタグ
 
     private GameObject currentInstance;   // 現在のプレハブインスタンス
@@ -86,7 +86,7 @@ public class ReflectorDirector : MonoBehaviour
 
         // 衝突処理を担当するコンポーネントを追加
         ReflectorController collisionHandler = currentInstance.AddComponent<ReflectorController>();
-        collisionHandler.Initialize(this, targetTag, bletTag);
+        collisionHandler.Initialize(this, EnemyTag, bletTag);
     }
 
     // 一定時間後にプレハブを元の位置に戻すコルーチン
@@ -124,7 +124,7 @@ public class ReflectorDirector : MonoBehaviour
 
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.CompareTag(targetTag))
+                if (hitCollider.CompareTag(EnemyTag))
                 {
                     DestroyCurrentInstance();
                     yield break;

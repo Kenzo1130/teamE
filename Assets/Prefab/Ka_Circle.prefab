@@ -99,6 +99,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7f74cb42925cfea4d8a8909789b8ad8d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healAmount: 1
   targetTag: Finish
 --- !u!50 &2402791967823021101
 Rigidbody2D:
