@@ -559,6 +559,11 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 454246014}
   m_CullTransparentMesh: 1
+--- !u!1 &557437726 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1436356395082215735, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
+  m_PrefabInstance: {fileID: 1791033808}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &574955024
 GameObject:
   m_ObjectHideFlags: 0
@@ -723,7 +728,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!61 &624765652
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1070,6 +1075,19 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2085013841609368062, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
   m_PrefabInstance: {fileID: 1791033808}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1163484249
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 557437726}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 94b3246d4bbcdfd4fb25b0be06d47928, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Bulletobj: {fileID: 7350186137172460854, guid: faca97de99569894b81210a3ee433bc0, type: 3}
 --- !u!1 &1190438442
 GameObject:
   m_ObjectHideFlags: 0
@@ -1298,11 +1316,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2085013841609368062, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0.11
+      value: -0.02
       objectReference: {fileID: 0}
     - target: {fileID: 2085013841609368062, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 4.62
+      value: 8.06
       objectReference: {fileID: 0}
     - target: {fileID: 2085013841609368062, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
       propertyPath: m_LocalPosition.z
@@ -1339,7 +1357,10 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 1436356395082215735, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1163484249}
   m_SourcePrefab: {fileID: 100100000, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
 --- !u!1 &1868111509
 GameObject:
@@ -1431,7 +1452,7 @@ MonoBehaviour:
   resetTime: 3
   destroyTime: 5
   EnemyTag: Enemy
-  bletTag: FInish
+  bletTag: Bullet
   validArea:
     serializedVersion: 2
     x: -8.3

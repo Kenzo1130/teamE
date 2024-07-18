@@ -10,12 +10,13 @@ GameObject:
   m_Component:
   - component: {fileID: 4004619653173595445}
   - component: {fileID: 90292174454406826}
-  - component: {fileID: -79899833578583442}
   - component: {fileID: 2402791967823021101}
   - component: {fileID: 2095382705799257775}
+  - component: {fileID: -3397321958239585818}
+  - component: {fileID: -8086262362686113506}
   m_Layer: 0
-  m_Name: Ka_Circle
-  m_TagString: Untagged
+  m_Name: Ka_Bullet
+  m_TagString: Bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -87,20 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-79899833578583442
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7350186137172460854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7f74cb42925cfea4d8a8909789b8ad8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  healAmount: 1
-  targetTag: Finish
 --- !u!50 &2402791967823021101
 Rigidbody2D:
   serializedVersion: 4
@@ -157,7 +144,7 @@ BoxCollider2D:
   m_CallbackLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
@@ -173,3 +160,29 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-3397321958239585818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350186137172460854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 854c2fe93bb7bc04dae8c0e7828f91d3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: -0.5
+--- !u!114 &-8086262362686113506
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350186137172460854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 19c85648c94e8534393b2e04d81cf1ec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetTag: Reflector
