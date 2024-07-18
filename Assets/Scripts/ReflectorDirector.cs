@@ -8,8 +8,10 @@ public class ReflectorDirector : MonoBehaviour
     public Vector3 initialPosition = new Vector3(1.0f, 1.0f, 0); // 任意の初期位置
     public float resetTime = 3.0f;   // リセットまでの時間
     public float destroyTime = 5.0f; // プレハブが消えるまでの時間
-    public string targetTag = "Target";   // 衝突対象のタグ
+    public string EnemyTag = "Enemy";   // 衝突対象のタグ
     public string bletTag = "Blet";       // 無視するタグ
+    public Rect validArea;    // 任意の範囲
+
 
     private GameObject currentInstance;   // 現在のプレハブインスタンス
     private bool isMouseDown = false;   // マウスが押されているかどうか
@@ -49,14 +51,22 @@ public class ReflectorDirector : MonoBehaviour
                 currentCollider.enabled = true;
             }
 
-            // プレハブを一定時間後に消去するコルーチンを開始
-            StartCoroutine(DestroyInstanceAfterTime(destroyTime));
+            // 範囲内チェックを行い、範囲外なら初期位置に戻す
+            if (!IsWithinValidArea(currentInstance.transform.position))
+            {
+                StartCoroutine(ResetPositionAfterTime(0));  // 即座に初期位置に戻す
+            }
+            else
+            {
+                // プレハブを一定時間後に消去するコルーチンを開始
+                StartCoroutine(DestroyInstanceAfterTime(destroyTime));
 
-            // コライダー有効化前の衝突チェックコルーチンを開始
-            StartCoroutine(CheckForCollisionBeforeEnableCollider());
+                // コライダー有効化前の衝突チェックコルーチンを開始
+                StartCoroutine(CheckForCollisionBeforeEnableCollider());
 
-            // プレハブをリセットするコルーチンを開始
-            StartCoroutine(ResetPositionAfterTime(resetTime));
+                // プレハブをリセットするコルーチンを開始
+                StartCoroutine(ResetPositionAfterTime(resetTime));
+            }
         }
         else if (Input.GetMouseButtonDown(0))
         {
@@ -86,7 +96,7 @@ public class ReflectorDirector : MonoBehaviour
 
         // 衝突処理を担当するコンポーネントを追加
         ReflectorController collisionHandler = currentInstance.AddComponent<ReflectorController>();
-        collisionHandler.Initialize(this, targetTag, bletTag);
+        collisionHandler.Initialize(this, EnemyTag, bletTag);
     }
 
     // 一定時間後にプレハブを元の位置に戻すコルーチン
@@ -124,7 +134,7 @@ public class ReflectorDirector : MonoBehaviour
 
             foreach (var hitCollider in hitColliders)
             {
-                if (hitCollider.CompareTag(targetTag))
+                if (hitCollider.CompareTag(EnemyTag))
                 {
                     DestroyCurrentInstance();
                     yield break;
@@ -156,5 +166,11 @@ public class ReflectorDirector : MonoBehaviour
             currentInstance = null;
             currentCollider = null;
         }
+    }
+
+    // 物体が任意の範囲内にあるかどうかをチェックする関数
+    private bool IsWithinValidArea(Vector3 position)
+    {
+        return validArea.Contains(new Vector2(position.x, position.y));
     }
 }
