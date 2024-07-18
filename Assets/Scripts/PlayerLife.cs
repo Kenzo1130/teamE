@@ -38,6 +38,15 @@ public class PlayerLifeController : MonoBehaviour
 
             //“G‚ð”j‰ó‚·‚é
             Destroy(collision.gameObject); 
+        }  
+        
+        if (collision.CompareTag("Bullet"))
+        {
+            //Žc‹@‚ðŒ¸‚ç‚·
+            life--;
+
+            //“G‚ð”j‰ó‚·‚é
+            Destroy(collision.gameObject); 
         }
     }
 
