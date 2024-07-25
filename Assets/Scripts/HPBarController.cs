@@ -73,7 +73,15 @@ public class HPBarController : MonoBehaviour
         }
         else if (collision.gameObject.CompareTag(reflectorg))
         {
-            // Bletƒ^ƒO‚Ì•¨‘Ì‚Æ‚ÌÕ“Ë‚É‚Í‰½‚à‚µ‚È‚¢
+           
+        }
+    }
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Player"))
+        {
+            Destroy(hpBarInstance);
+            Destroy(gameObject);
         }
     }
     public void TakeDamage(float Emdamage)

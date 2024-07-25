@@ -6,14 +6,14 @@ public class ReflectorController : MonoBehaviour
 {
     private ReflectorDirector spawner;   // 親スクリプトへの参照
     private string targetTag;   // 衝突対象のタグ
-    private string bletTag;     // 無視するタグ
+    private string bullet;     // 無視するタグ
 
     // 初期化メソッド
     public void Initialize(ReflectorDirector spawner, string targetTag, string bletTag)
     {
         this.spawner = spawner;
         this.targetTag = targetTag;
-        this.bletTag = bletTag;
+        this.bullet = bletTag;
     }
 
     // 衝突検出メソッド
@@ -23,7 +23,7 @@ public class ReflectorController : MonoBehaviour
         {
             spawner.DestroyCurrentInstance();
         }
-        else if (collision.gameObject.CompareTag(bletTag))
+        else if (collision.gameObject.CompareTag(bullet))
         {
             // Bletタグの物体との衝突時には何もしない
         }

@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class ReflectorDirector : MonoBehaviour
 {
-    public GameObject prefab;   // 使用するプレハブ
+    public GameObject[] prefabs;   // 使用するプレハブのリスト
     public Vector3 initialPosition = new Vector3(1.0f, 1.0f, 0); // 任意の初期位置
     public float resetTime = 3.0f;   // リセットまでの時間
     public float destroyTime = 5.0f; // プレハブが消えるまでの時間
     public string EnemyTag = "Enemy";   // 衝突対象のタグ
-    public string bletTag = "Blet";       // 無視するタグ
+    public string bullet = "Bullet";       // 無視するタグ
     public Rect validArea;    // 任意の範囲
 
 
@@ -86,6 +86,10 @@ public class ReflectorDirector : MonoBehaviour
     // プレハブのインスタンスを任意の初期位置に配置する関数
     private void CreateInstanceAtInitialPosition()
     {
+        if (prefabs.Length == 0) return;
+
+        // ランダムにプレハブを選択
+        GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
         currentInstance = Instantiate(prefab);
         currentInstance.transform.position = initialPosition;
         currentCollider = currentInstance.GetComponent<Collider2D>();
@@ -96,7 +100,7 @@ public class ReflectorDirector : MonoBehaviour
 
         // 衝突処理を担当するコンポーネントを追加
         ReflectorController collisionHandler = currentInstance.AddComponent<ReflectorController>();
-        collisionHandler.Initialize(this, EnemyTag, bletTag);
+        collisionHandler.Initialize(this, EnemyTag, bullet);
     }
 
     // 一定時間後にプレハブを元の位置に戻すコルーチン
