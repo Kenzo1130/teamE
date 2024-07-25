@@ -42,11 +42,7 @@ public class PlayerLifeController : MonoBehaviour
         
         if (collision.CompareTag("Bullet"))
         {
-            //Žc‹@‚ðŒ¸‚ç‚·
-            life--;
-
-            //“G‚ð”j‰ó‚·‚é
-            Destroy(collision.gameObject); 
+           
         }
     }
 
