@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 5079151353479404559}
   - component: {fileID: 1177468223026642386}
   - component: {fileID: 1625343030874903370}
-  - component: {fileID: -8988363087916669531}
+  - component: {fileID: -4354118934439566300}
   m_Layer: 9
   m_Name: fall
   m_TagString: Bullet
@@ -136,7 +136,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   risingObjectPrefab: {fileID: 6881636504221905387, guid: 923cf2077b1c9ba488ea5e0a3ab714c3, type: 3}
   targetTag: Reflector
---- !u!50 &-8988363087916669531
+--- !u!50 &-4354118934439566300
 Rigidbody2D:
   serializedVersion: 4
   m_ObjectHideFlags: 0

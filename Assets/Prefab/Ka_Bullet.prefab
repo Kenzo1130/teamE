@@ -13,7 +13,6 @@ GameObject:
   - component: {fileID: 2402791967823021101}
   - component: {fileID: 2095382705799257775}
   - component: {fileID: -3397321958239585818}
-  - component: {fileID: -8086262362686113506}
   m_Layer: 0
   m_Name: Ka_Bullet
   m_TagString: Bullet
@@ -173,16 +172,3 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: -0.5
---- !u!114 &-8086262362686113506
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7350186137172460854}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 19c85648c94e8534393b2e04d81cf1ec, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  targetTag: Reflector
