@@ -9,11 +9,11 @@ public class ReflectorController : MonoBehaviour
     private string bullet;     // 無視するタグ
 
     // 初期化メソッド
-    public void Initialize(ReflectorDirector spawner, string targetTag, string bletTag)
+    public void Initialize(ReflectorDirector spawner, string EnemyTag, string bullet)
     {
         this.spawner = spawner;
-        this.targetTag = targetTag;
-        this.bullet = bletTag;
+        this.targetTag = EnemyTag;
+        this.bullet = bullet;
     }
 
     // 衝突検出メソッド
