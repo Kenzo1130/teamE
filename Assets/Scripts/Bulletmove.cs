@@ -4,21 +4,28 @@ using UnityEngine;
 
 public class Bulletmove : MonoBehaviour
 {
-    [SerializeField] public float speed = -1.0f; //’e‚Ì‚Í‘¬‚³
+    [SerializeField] float Speed; //’e‚Ì‚Í‘¬‚³
+    [SerializeField] float Power; //’e‚ÌˆÐ—Í
+
+    private Rigidbody2D Rigid;
+
 
     // Start is called before the first frame update
     void Start()
     {
-      
+      Rigid = GetComponent<Rigidbody2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        transform.Translate(Vector3.up * speed * Time.deltaTime); // yŽ²•ûŒü‚ÉˆÚ“®
-                                                                  
-       
+        Move();
     }
 
-   
+    private void Move()
+    {
+        Rigid.velocity = transform.up * Speed;
+    }
+
+
 }
