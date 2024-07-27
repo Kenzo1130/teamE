@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 2502801966090930008}
   - component: {fileID: 1096113504898812774}
   - component: {fileID: -337449286453234987}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: TaCircle (1)
   m_TagString: Bullet
   m_Icon: {fileID: 0}
@@ -100,8 +100,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854c2fe93bb7bc04dae8c0e7828f91d3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: -1
+  Speed: 1
   Power: 5
+  magnification: 10
 --- !u!58 &2502801966090930008
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -164,7 +165,7 @@ Rigidbody2D:
   m_Mass: 1
   m_LinearDrag: 0
   m_AngularDrag: 0.05
-  m_GravityScale: 1
+  m_GravityScale: 0
   m_Material: {fileID: 0}
   m_IncludeLayers:
     serializedVersion: 2

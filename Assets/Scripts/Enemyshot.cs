@@ -6,7 +6,7 @@ public class Enemyshot : MonoBehaviour
 {
     [SerializeField]
     public GameObject Bulletobj; // 生成したいプレハブ(Bullet) 
-    [SerializeField]
+    [SerializeField,Header("弾を発射する時間の間隔")]
     float Shottime;              //弾を発射する時間の間隔
 
     private float Shotcount;     //設定したShottimeになるまでのカウントをする関数
