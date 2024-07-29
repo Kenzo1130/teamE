@@ -1024,8 +1024,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fd5c2729b255de4ebb16ed561376d90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabToSpawn: {fileID: 1436356395082215735, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
-  spawnInterval: 5
+  objectsToSpawn:
+  - prefab: {fileID: 1436356395082215735, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
+    spawnProbability: 0
+  - prefab: {fileID: 0}
+    spawnProbability: 0
+  - prefab: {fileID: 0}
+    spawnProbability: 0
+  initialSpawnInterval: 5
+  minSpawnInterval: 1
+  intervalDecreaseRate: 0.1
+  decreaseIntervalTime: 30
   spawnRangeMin: {x: 0, y: 10}
   spawnRangeMax: {x: 0, y: 10}
 --- !u!82 &1868111519

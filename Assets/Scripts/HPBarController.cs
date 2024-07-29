@@ -10,6 +10,7 @@ public class HPBarController : MonoBehaviour
     private Canvas canvas;
     private float currentHP;
     public float maxHP = 100;
+    public float speed = -3;
     // 敵が与えるダメージ量（敵の場合）
     public float Emdamage = 10f;
 
@@ -66,7 +67,7 @@ public class HPBarController : MonoBehaviour
         Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
 
         hpBarRect.anchoredPosition = screenPosition;
-
+        transform.Translate(0, speed * Time.deltaTime, 0);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
