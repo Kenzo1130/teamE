@@ -18,6 +18,12 @@ public class ReflectorDirector : MonoBehaviour
     private bool isWaiting = false;   // 一時停止中かどうか
     private Collider2D currentCollider;   // 現在のプレハブのコライダー
 
+    public AudioClip spawnSound;   // プレハブ生成時のサウンド
+    public AudioClip destroySound;  // プレハブ削除時のサウンド
+    public AudioClip collisionEnemy; // 敵衝突時のサウンド
+    public AudioClip collisionBullet; // 弾衝突時のサウンド
+    private AudioSource audioSource; // AudioSourceコンポーネント
+
     void Start()
     {
         // プレハブのインスタンスを任意の初期位置に配置
@@ -66,6 +72,9 @@ public class ReflectorDirector : MonoBehaviour
 
                 // プレハブをリセットするコルーチンを開始
                 StartCoroutine(ResetPositionAfterTime(resetTime));
+
+                // プレハブ生成時のサウンド再生
+                audioSource.PlayOneShot(spawnSound);
             }
         }
         else if (Input.GetMouseButtonDown(0))
@@ -100,7 +109,7 @@ public class ReflectorDirector : MonoBehaviour
 
         // 衝突処理を担当するコンポーネントを追加
         ReflectorController collisionHandler = currentInstance.AddComponent<ReflectorController>();
-        collisionHandler.Initialize(this, EnemyTag, bullet);
+        collisionHandler.Initialize(this, EnemyTag, bullet, collisionEnemy, collisionBullet, audioSource);
     }
 
     // 一定時間後にプレハブを元の位置に戻すコルーチン
@@ -169,6 +178,8 @@ public class ReflectorDirector : MonoBehaviour
             Destroy(currentInstance);
             currentInstance = null;
             currentCollider = null;
+            // プレハブ削除時のサウンド再生
+            audioSource.PlayOneShot(destroySound); 
         }
     }
 
