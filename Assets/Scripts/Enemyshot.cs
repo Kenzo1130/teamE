@@ -29,7 +29,7 @@ public class Enemyshot : MonoBehaviour
         Shotcount += Time.deltaTime;
         if (Shotcount < Shottime)   
         {
-            return;     //Shotcountの値ががShottimeの値より小さい場合は処理をおかなわない
+            return;     //Shotcountの値ががShottimeの値より小さい場合は処理をおこなわない
         }
 
         GameObject bulletobj = Instantiate(Bulletobj);  //Bulletobjを呼び出す関数

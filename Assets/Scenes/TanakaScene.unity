@@ -220,7 +220,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Bulletobj: {fileID: 3995342608014582826, guid: 0c7244c9055e6fe49a06e675b6ef1d08, type: 3}
-  Shottime: 5
+  Shottime: 3
 --- !u!1 &1035118139
 GameObject:
   m_ObjectHideFlags: 0
