@@ -4,14 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Enemy
   - Bullet
+  - Enemy
   - Reflector
-<<<<<<< HEAD
-  - Item
-=======
   - Shotposition
->>>>>>> tanaka
+  - Item
   layers:
   - Default
   - TransparentFX
@@ -19,15 +16,9 @@ TagManager:
   - 
   - Water
   - UI
-<<<<<<< HEAD
-  - Enemy
-  - Bullet
-  - Reflector
-=======
   - EnemyBullet
-  - 
-  - 
->>>>>>> tanaka
+  - Enemy
+  - Reflector
   - 
   - 
   - 
