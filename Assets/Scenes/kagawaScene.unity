@@ -895,19 +895,18 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5cc2627889d208d41a8173ecbe07b66f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prefabs:
-  - {fileID: 8412287997317714098, guid: 7db784828a0d52f4c87385a9e4e92d73, type: 3}
-  initialPosition: {x: 11, y: 1, z: 0}
-  resetTime: 2
-  destroyTime: 2
+  prefabs: []
+  initialPosition: {x: 1, y: 1, z: 0}
+  resetTime: 3
+  destroyTime: 5
   EnemyTag: Enemy
   bullet: Bullet
   validArea:
     serializedVersion: 2
-    x: -8.3
-    y: -10
-    width: 16.6
-    height: 20
+    x: 0
+    y: 0
+    width: 0
+    height: 0
 --- !u!114 &1868111518
 MonoBehaviour:
   m_ObjectHideFlags: 0
