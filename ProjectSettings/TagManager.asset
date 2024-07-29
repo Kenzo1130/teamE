@@ -7,7 +7,11 @@ TagManager:
   - Enemy
   - Bullet
   - Reflector
+<<<<<<< HEAD
   - Item
+=======
+  - Shotposition
+>>>>>>> tanaka
   layers:
   - Default
   - TransparentFX
@@ -15,9 +19,15 @@ TagManager:
   - 
   - Water
   - UI
+<<<<<<< HEAD
   - Enemy
   - Bullet
   - Reflector
+=======
+  - EnemyBullet
+  - 
+  - 
+>>>>>>> tanaka
   - 
   - 
   - 
