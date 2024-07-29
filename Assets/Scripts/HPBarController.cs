@@ -38,10 +38,12 @@ public class HPBarController : MonoBehaviour
     //効果音
     public AudioClip enemydeath;
     public AudioClip enemydamage;
-    private AudioSource audioSource; // AudioSourceコンポーネント
+    AudioSource audioSource; // AudioSourceコンポーネント
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
+
         currentHP = maxHP;
         // メインキャンバスを見つける
         canvas = FindObjectOfType<Canvas>();

@@ -8,11 +8,16 @@ public class PlayerLifeController : MonoBehaviour
 {
     public GameObject[] Life;
     public GameObject textGameOver;
+    public AudioClip DamageSound;
+    public AudioClip HealSound;
+    AudioSource audioSource;
+    
 
     int life;
 
     void Start()
     {
+        audioSource = GetComponent<AudioSource>();
         life = Life.Length;
         textGameOver.SetActive(false);
     }
@@ -35,8 +40,7 @@ public class PlayerLifeController : MonoBehaviour
         {
             //Žc‹@‚ðŒ¸‚ç‚·
             life--;
-
-            
+            audioSource.PlayOneShot(DamageSound);
         }  
         
         if (collision.CompareTag("Bullet"))
@@ -51,6 +55,7 @@ public class PlayerLifeController : MonoBehaviour
     }
     public void Heal(int healAmount)
     {
+        audioSource.PlayOneShot(HealSound);
         life += healAmount;
         if (life > Life.Length) life = Life.Length;
     }
