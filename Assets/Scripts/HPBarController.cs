@@ -35,6 +35,11 @@ public class HPBarController : MonoBehaviour
     // 物体が消えたときに加算するスコア
     public int scoreValue = 10;
 
+    //効果音
+    public AudioClip enemydeath;
+    public AudioClip enemydamage;
+    private AudioSource audioSource; // AudioSourceコンポーネント
+
     void Start()
     {
         currentHP = maxHP;
@@ -99,6 +104,10 @@ public class HPBarController : MonoBehaviour
         {
             Die();
         }
+        else
+        {
+            audioSource.PlayOneShot(enemydamage);
+        }
     }
     void Die()
     {
@@ -114,6 +123,7 @@ public class HPBarController : MonoBehaviour
         Destroy(hpBarInstance, 1f);
         // アイテムを落下させる
         TryDropItem();
+        audioSource.PlayOneShot(enemydeath);
     }
 
     void PlaySpecialDieAnimation()
@@ -130,6 +140,7 @@ public class HPBarController : MonoBehaviour
         Destroy(hpBarInstance, 1f);
         // アイテムを落下させる
         TryDropItem();
+        audioSource.PlayOneShot(enemydeath);
     }
 
     void TryDropItem()
