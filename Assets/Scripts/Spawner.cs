@@ -19,13 +19,14 @@ public class Spawner : MonoBehaviour
 
     private float currentSpawnInterval; // 現在のスポーン間隔
     private float timeSinceLastDecrease; // 最後にスポーン間隔が減少してからの時間
+    private int maxSpawnedObjects = 10;  // 最大スポーンオブジェクト数
 
     public Vector2 spawnRangeMin; // スポーン範囲の最小値
     public Vector2 spawnRangeMax; // スポーン範囲の最大値
 
     void Start()
     {
-        currentSpawnInterval = initialSpawnInterval; 
+        currentSpawnInterval = initialSpawnInterval;
         timeSinceLastDecrease = 0.0f;
         InvokeRepeating("SpawnObject", 0, currentSpawnInterval);
     }
@@ -44,13 +45,16 @@ public class Spawner : MonoBehaviour
 
     void SpawnObject()
     {
-        Vector2 spawnPosition = new Vector2(
-            Random.Range(spawnRangeMin.x, spawnRangeMax.x),
-            Random.Range(spawnRangeMin.y, spawnRangeMax.y)
-        );
+        if (GameObject.FindGameObjectsWithTag("Spawned").Length < maxSpawnedObjects) // タグを使ってスポーン数を制限
+        {
+            Vector2 spawnPosition = new Vector2(
+                Random.Range(spawnRangeMin.x, spawnRangeMax.x),
+                Random.Range(spawnRangeMin.y, spawnRangeMax.y)
+            );
 
-        GameObject prefabToSpawn = SelectRandomPrefab();
-        Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+            GameObject prefabToSpawn = SelectRandomPrefab();
+            Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+        }
     }
 
     GameObject SelectRandomPrefab()
@@ -59,6 +63,12 @@ public class Spawner : MonoBehaviour
         foreach (var obj in objectsToSpawn)
         {
             totalProbability += obj.spawnProbability;
+        }
+
+        if (totalProbability > 1f)
+        {
+            Debug.LogWarning("合計確率が1を超えています。確率を見直してください。");
+            return objectsToSpawn[0].prefab; // デフォルトで最初のプレハブを返す
         }
 
         float randomPoint = Random.value * totalProbability;
@@ -78,4 +88,3 @@ public class Spawner : MonoBehaviour
         return objectsToSpawn[0].prefab; // デフォルトで最初のプレハブを返す
     }
 }
-
