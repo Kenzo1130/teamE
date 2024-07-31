@@ -9,6 +9,7 @@ TagManager:
   - Reflector
   - Shotposition
   - Item
+  - SpBullet
   layers:
   - Default
   - TransparentFX
