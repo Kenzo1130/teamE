@@ -34,7 +34,11 @@ public class ReflectorController : MonoBehaviour
             audioSource.PlayOneShot(collisionEnemy);
             spawner.DestroyCurrentInstance();
         }
-        else  
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.CompareTag(bullet))
         {
             audioSource.PlayOneShot(collisionBullet);
         }

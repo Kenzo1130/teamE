@@ -107,7 +107,7 @@ MonoBehaviour:
   EmdamageMultiplier: 3
   itemPrefabs:
   - {fileID: 7350186137172460854, guid: c375952a2ced50142af983045a0b2b35, type: 3}
-  dropProbability: 1
+  dropProbability: 0
   dropSpeed: 5
   animator: {fileID: 0}
   scoreValue: 10
