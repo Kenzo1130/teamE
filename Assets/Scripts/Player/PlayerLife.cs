@@ -43,10 +43,14 @@ public class PlayerLifeController : MonoBehaviour
             life--;
             audioSource.PlayOneShot(DamageSound);
         }  
-        
-        if (collision.CompareTag("Bullet"))
+        else if (collision.CompareTag("Item")|| collision.CompareTag("Reflector"))
         {
-           Destroy(collision.gameObject);
+            
+        }
+        else
+        {
+            life--;
+            audioSource.PlayOneShot(DamageSound);
         }
     }
 
