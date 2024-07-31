@@ -13,9 +13,11 @@ public class HPBarController : MonoBehaviour
     public float speed = -3;
     // 敵が与えるダメージ量（敵の場合）
     public float Emdamage = 10f;
+    public float SpEmdamege = 30f;
 
     // このキャラクターが敵かどうか
     public string bulletTag = "Bullet";
+    public string spbulletTag = "SpBullet";
     public string reflectorg = "Reflector";
 
     // 残りHPにかける数
@@ -41,11 +43,18 @@ public class HPBarController : MonoBehaviour
     public AudioClip enemydamage;
     AudioSource audioSource; // AudioSourceコンポーネント
 
+    private Collider2D currentCollider;   // 現在のプレハブのコライダー
+
     void Start()
     {
+        currentCollider = GetComponent<Collider2D>();
+
+        currentCollider.enabled = true;
+
         audioSource = GetComponent<AudioSource>();
 
         currentHP = maxHP;
+
         // メインキャンバスを見つける
         canvas = FindObjectOfType<Canvas>();
 
@@ -76,12 +85,23 @@ public class HPBarController : MonoBehaviour
         if (collision.gameObject.CompareTag(bulletTag))
         {
             // 上昇中のオブジェクトを消滅させる
-            Destroy(collision.gameObject);
             TakeDamage(Emdamage);
+            if(currentHP > 0)
+            {
+                Destroy(collision.gameObject);
+            }
+        }
+        else if (collision.gameObject.CompareTag(spbulletTag))
+        {
+            TakeDamage(SpEmdamege);
+            if (currentHP > 0)
+            {
+                Destroy(collision.gameObject);
+            }
         }
         else if (collision.gameObject.CompareTag(reflectorg))
         {
-           
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -94,17 +114,21 @@ public class HPBarController : MonoBehaviour
     }
     public void TakeDamage(float Emdamage)
     {
+        float thresholdDamage = currentHP * EmdamageMultiplier;
         currentHP -= Emdamage;
         if (currentHP < 0) currentHP = 0;
         hpFillImage.fillAmount = currentHP / maxHP;
-        int thresholdDamage = Mathf.FloorToInt(currentHP * EmdamageMultiplier);
         if (currentHP <= 0 && Emdamage > thresholdDamage)
         {
+            
+            currentCollider.enabled = false;
             // 大きなダメージを受けたときの処理
             PlaySpecialDieAnimation();
         }
         else if (currentHP <= 0)
         {
+            
+            currentCollider.enabled = false;
             Die();
         }
         else
@@ -116,7 +140,6 @@ public class HPBarController : MonoBehaviour
     {
         // 通常の死亡モーション
         //animator.SetTrigger("Die");
-
         // スコアを加算
         ScoreManager.instance.AddScore(scoreValue);
 

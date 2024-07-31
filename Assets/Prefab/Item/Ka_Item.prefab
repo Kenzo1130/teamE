@@ -14,8 +14,8 @@ GameObject:
   - component: {fileID: 2402791967823021101}
   - component: {fileID: 2095382705799257775}
   m_Layer: 0
-  m_Name: Ka_Circle
-  m_TagString: Untagged
+  m_Name: Ka_Item
+  m_TagString: Item
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,7 +100,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   healAmount: 1
-  targetTag: Finish
+  targetTag: Player
 --- !u!50 &2402791967823021101
 Rigidbody2D:
   serializedVersion: 4
