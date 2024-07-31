@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class Spawner : MonoBehaviour
@@ -7,22 +5,22 @@ public class Spawner : MonoBehaviour
     [System.Serializable]
     public class SpawnableObject
     {
-        public GameObject prefab;          // スポーンさせるプレハブ
-        public float spawnProbability;     // スポーン確率（0から1の範囲）
+        public GameObject prefab;
+        public float spawnProbability; // 0 to 1
+        public float fallSpeed = 1.0f; // 落下速度
     }
 
-    public SpawnableObject[] objectsToSpawn;  // スポーン可能なオブジェクトのリスト
-    public float initialSpawnInterval = 5.0f; // 初期のスポーン間隔
-    public float minSpawnInterval = 1.0f;     // 最小のスポーン間隔
-    public float intervalDecreaseRate = 0.1f; // スポーン間隔の減少率
-    public float decreaseIntervalTime = 30.0f; // スポーン間隔が減少するまでの時間
+    public SpawnableObject[] objectsToSpawn;
+    public float initialSpawnInterval = 5.0f;
+    public float minSpawnInterval = 1.0f;
+    public float intervalDecreaseRate = 0.1f;
+    public float decreaseIntervalTime = 30.0f;
 
-    private float currentSpawnInterval; // 現在のスポーン間隔
-    private float timeSinceLastDecrease; // 最後にスポーン間隔が減少してからの時間
-    private int maxSpawnedObjects = 10;  // 最大スポーンオブジェクト数
+    private float currentSpawnInterval;
+    private float timeSinceLastDecrease;
 
-    public Vector2 spawnRangeMin; // スポーン範囲の最小値
-    public Vector2 spawnRangeMax; // スポーン範囲の最大値
+    public Vector2 spawnRangeMin;
+    public Vector2 spawnRangeMax;
 
     void Start()
     {
@@ -45,30 +43,28 @@ public class Spawner : MonoBehaviour
 
     void SpawnObject()
     {
-        if (GameObject.FindGameObjectsWithTag("Spawned").Length < maxSpawnedObjects) // タグを使ってスポーン数を制限
-        {
-            Vector2 spawnPosition = new Vector2(
-                Random.Range(spawnRangeMin.x, spawnRangeMax.x),
-                Random.Range(spawnRangeMin.y, spawnRangeMax.y)
-            );
+        Vector2 spawnPosition = new Vector2(
+            Random.Range(spawnRangeMin.x, spawnRangeMax.x),
+            Random.Range(spawnRangeMin.y, spawnRangeMax.y)
+        );
 
-            GameObject prefabToSpawn = SelectRandomPrefab();
-            Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+        GameObject prefabToSpawn = SelectRandomPrefab(out float fallSpeed);
+        GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
+
+        // Rigidbody2DのVelocityを設定
+        Rigidbody2D rb = spawnedObject.GetComponent<Rigidbody2D>();
+        if (rb != null)
+        {
+            rb.velocity = new Vector2(0, -fallSpeed);
         }
     }
 
-    GameObject SelectRandomPrefab()
+    GameObject SelectRandomPrefab(out float fallSpeed)
     {
         float totalProbability = 0f;
         foreach (var obj in objectsToSpawn)
         {
             totalProbability += obj.spawnProbability;
-        }
-
-        if (totalProbability > 1f)
-        {
-            Debug.LogWarning("合計確率が1を超えています。確率を見直してください。");
-            return objectsToSpawn[0].prefab; // デフォルトで最初のプレハブを返す
         }
 
         float randomPoint = Random.value * totalProbability;
@@ -77,6 +73,7 @@ public class Spawner : MonoBehaviour
         {
             if (randomPoint < obj.spawnProbability)
             {
+                fallSpeed = obj.fallSpeed;
                 return obj.prefab;
             }
             else
@@ -85,6 +82,7 @@ public class Spawner : MonoBehaviour
             }
         }
 
+        fallSpeed = objectsToSpawn[0].fallSpeed;
         return objectsToSpawn[0].prefab; // デフォルトで最初のプレハブを返す
     }
 }
