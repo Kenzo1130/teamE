@@ -4,20 +4,37 @@ using UnityEngine;
 
 public class ReflectorController : MonoBehaviour
 {
-    public float lifeTime = 5.0f; // ブロックが存在する時間（秒）
+    private ReflectorDirector spawner;   // 親スクリプトへの参照
+    private string targetTag;   // 衝突対象のタグ
+    private string bullet;     // 無視するタグ
+    AudioClip collisionEnemy; // 敵衝突時のサウンド
+    AudioClip collisionBullet; // 弾衝突時のサウンド
+    AudioSource audioSource; // AudioSourceコンポーネント
 
-    void Start()
+    // 初期化メソッド
+    public void Initialize(ReflectorDirector spawner, string EnemyTag, string BulletTag,
+                           AudioClip collisionEnemy, AudioClip collisionBullet,
+                           AudioSource audioSource)
     {
-        Destroy(gameObject, lifeTime); // 一定時間後に自身を破壊
+        this.spawner = spawner;
+        this.targetTag = EnemyTag;
+        this.bullet = BulletTag;
+        this.collisionEnemy = collisionEnemy;
+        this.collisionBullet = collisionBullet;
+        this.audioSource = audioSource;
     }
 
-    private void Update()
-    {
-        
-    }
-
+    // 衝突検出メソッド
     void OnCollisionEnter2D(Collision2D collision)
     {
-        Destroy(gameObject);    
+        if (collision.gameObject.CompareTag(targetTag))
+        {
+            audioSource.PlayOneShot(collisionEnemy);
+            spawner.DestroyCurrentInstance();
+        }
+        else if (collision.gameObject.CompareTag(bullet))
+        {
+            audioSource.PlayOneShot(collisionBullet);
+        }
     }
 }
