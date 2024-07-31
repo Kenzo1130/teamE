@@ -8,12 +8,7 @@ TagManager:
   - Reflector
   - Shotposition
   - Item
-  - Bullet_fire
-  - Bullet_shark
-  - Bullet_bat
-  - SpBullet_fire
-  - SpBullet_shark
-  - SpBullet_bat
+  - Bullet
   layers:
   - Default
   - TransparentFX

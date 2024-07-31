@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 4004619653173595445}
   - component: {fileID: 90292174454406826}
-  - component: {fileID: -6879631472796756433}
   - component: {fileID: 2560713769513405708}
-  - component: {fileID: 3152906212829736926}
+  - component: {fileID: 6018950427426851553}
+  - component: {fileID: 8685207000583326268}
   m_Layer: 6
   m_Name: Ka_Bullet_batSp
   m_TagString: Untagged
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
-  m_Color: {r: 0.7509433, g: 0, b: 0, a: 1}
+  m_Color: {r: 0.3792266, g: 0, b: 0.6603774, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -87,33 +87,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!50 &-6879631472796756433
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7350186137172460854}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_IncludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_ExcludeLayers:
-    serializedVersion: 2
-    m_Bits: 0
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 0
 --- !u!58 &2560713769513405708
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -149,7 +122,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &3152906212829736926
+--- !u!114 &6018950427426851553
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,11 +131,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 7350186137172460854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f44b64c5b83c20d48a49e64952a4d115, type: 3}
+  m_Script: {fileID: 11500000, guid: 0033cc66afab82a4fb8a484204b7d028, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
-  Power: 0
+  Power: 60
   magnification: 5
   targetTag: Reflector
   validArea:
@@ -171,3 +144,30 @@ MonoBehaviour:
     y: -10
     width: 16.6
     height: 20
+--- !u!50 &8685207000583326268
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350186137172460854}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0

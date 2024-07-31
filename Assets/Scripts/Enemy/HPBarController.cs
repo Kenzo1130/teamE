@@ -11,17 +11,7 @@ public class HPBarController : MonoBehaviour
     private float currentHP;
     public float maxHP = 100;
     public float speed = -3;
-    // 敵が与えるダメージ量（敵の場合）
-    public float Emdamage = 10f;
-    public float Emdamege_fire = 10f;
-    public float Emdamege_shark = 10f;
-    public float Emdamege_bat = 10f;
-
-    // このキャラクターが敵かどうか
-    //public string bulletTag = "Bullet";
-    //public string bulletTag_fire = "FireSpBullet";
-    //public string bulletTag_shark = "SharkSpBullet";
-    //public string bulletTag_bat = "BatBullet";
+   
     public string reflectorg = "Reflector";
 
     // 残りHPにかける数

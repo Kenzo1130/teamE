@@ -675,7 +675,7 @@ Transform:
   m_GameObject: {fileID: 574955024}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.1395, y: -9.25, z: 0}
+  m_LocalPosition: {x: 0.02, y: -11.23, z: 0}
   m_LocalScale: {x: 16.7008, y: 1.4784, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1701,13 +1701,16 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectsToSpawn:
+  - prefab: {fileID: 1436356395082215735, guid: 288190280f1b63b48bb230307f605992, type: 3}
+    spawnProbability: 0.1
   - prefab: {fileID: 1436356395082215735, guid: b67062e3f12a4384da45409cc2984bf2, type: 3}
-    spawnProbability: 1
-    fallSpeed: 0.1
+    spawnProbability: 0.5
+  - prefab: {fileID: 1436356395082215735, guid: 1972906dc2e4a794195a49d62ae14704, type: 3}
+    spawnProbability: 0.4
   initialSpawnInterval: 100
   minSpawnInterval: 1
   intervalDecreaseRate: 0.1
-  decreaseIntervalTime: 100
+  decreaseIntervalTime: 3
   spawnRangeMin: {x: 0, y: 10}
   spawnRangeMax: {x: 0, y: 10}
 --- !u!82 &1868111519
