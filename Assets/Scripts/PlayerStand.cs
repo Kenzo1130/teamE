@@ -11,14 +11,16 @@ public class PlayerStand : MonoBehaviour
 
     int stand;
 
+    public PlayerLifeController playerLifeController;
+
     void Start()
     {
-
         stand = Stand.Length;
-
     }
     void Update()
     {
+        stand = playerLifeController.life;
+
         switch (stand)
         {
             case 0:
@@ -85,6 +87,7 @@ public class PlayerStand : MonoBehaviour
             }
         }  
     }
+
 }
 
 
