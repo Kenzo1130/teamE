@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 
 public class GameResult : MonoBehaviour
 {
+
     int HP = 0;
     private bool Result = false;
     [SerializeField] GameObject UI_Result;
@@ -33,4 +34,5 @@ public class GameResult : MonoBehaviour
     {
         SceneManager.LoadScene("TitleScene");
     }
+
 }
