@@ -13,9 +13,15 @@ public class HPBarController : MonoBehaviour
     public float speed = -3;
     // 敵が与えるダメージ量（敵の場合）
     public float Emdamage = 10f;
+    public float Emdamege_fire = 10f;
+    public float Emdamege_shark = 10f;
+    public float Emdamege_bat = 10f;
 
     // このキャラクターが敵かどうか
-    public string bulletTag = "Bullet";
+    //public string bulletTag = "Bullet";
+    //public string bulletTag_fire = "FireSpBullet";
+    //public string bulletTag_shark = "SharkSpBullet";
+    //public string bulletTag_bat = "BatBullet";
     public string reflectorg = "Reflector";
 
     // 残りHPにかける数
@@ -41,11 +47,18 @@ public class HPBarController : MonoBehaviour
     public AudioClip enemydamage;
     AudioSource audioSource; // AudioSourceコンポーネント
 
+    private Collider2D currentCollider;   // 現在のプレハブのコライダー
+
     void Start()
     {
+        currentCollider = GetComponent<Collider2D>();
+
+        currentCollider.enabled = true;
+
         audioSource = GetComponent<AudioSource>();
 
         currentHP = maxHP;
+
         // メインキャンバスを見つける
         canvas = FindObjectOfType<Canvas>();
 
@@ -54,11 +67,7 @@ public class HPBarController : MonoBehaviour
         hpBarRect = hpBarInstance.transform.Find("health").GetComponent<RectTransform>();
         hpFillImage = hpBarRect.Find("bar").GetComponent<Image>();
 
-        // HPバーの位置をキャラクターの頭上に表示する
-        Vector3 worldPosition = transform.position + new Vector3(0, 1.5f, 0); // キャラクターの頭上の位置にオフセット
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
 
-        hpBarRect.anchoredPosition = screenPosition;
     }
     void Update()
     {
@@ -70,18 +79,29 @@ public class HPBarController : MonoBehaviour
         transform.Translate(0, speed * Time.deltaTime, 0);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        // 敵がプレイヤーにダメージを与える
-        if (collision.gameObject.CompareTag(bulletTag))
+        //// 敵がプレイヤーにダメージを与える
+        //if (collision.gameObject.CompareTag(bulletTag))
+        //{
+        //    // 上昇中のオブジェクトを消滅させる
+        //    TakeDamage(Emdamage);
+        //    if(currentHP > 0)
+        //    {
+        //        Destroy(collision.gameObject);
+        //    }
+        //}
+        //else if (collision.gameObject.CompareTag(bulletTag))
+        //{
+        //    TakeDamage(Emdamege_fire);
+        //    if (currentHP > 0)
+        //    {
+        //        Destroy(collision.gameObject);
+        //    }
+        //}
+        if (collision.gameObject.CompareTag(reflectorg))
         {
-            // 上昇中のオブジェクトを消滅させる
-            Destroy(collision.gameObject);
-            TakeDamage(Emdamage);
-        }
-        else if (collision.gameObject.CompareTag(reflectorg))
-        {
-           
+
         }
     }
     private void OnTriggerEnter2D(Collider2D collision)
@@ -94,17 +114,21 @@ public class HPBarController : MonoBehaviour
     }
     public void TakeDamage(float Emdamage)
     {
+        float thresholdDamage = currentHP * EmdamageMultiplier;
         currentHP -= Emdamage;
         if (currentHP < 0) currentHP = 0;
         hpFillImage.fillAmount = currentHP / maxHP;
-        int thresholdDamage = Mathf.FloorToInt(currentHP * EmdamageMultiplier);
         if (currentHP <= 0 && Emdamage > thresholdDamage)
         {
+            
+            currentCollider.enabled = false;
             // 大きなダメージを受けたときの処理
             PlaySpecialDieAnimation();
         }
         else if (currentHP <= 0)
         {
+            
+            currentCollider.enabled = false;
             Die();
         }
         else
@@ -112,11 +136,14 @@ public class HPBarController : MonoBehaviour
             audioSource.PlayOneShot(enemydamage);
         }
     }
+    public float GetCurrentHP()
+    {
+        return currentHP;
+    }
     void Die()
     {
         // 通常の死亡モーション
         //animator.SetTrigger("Die");
-
         // スコアを加算
         ScoreManager.instance.AddScore(scoreValue);
 

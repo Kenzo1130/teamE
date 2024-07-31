@@ -10,6 +10,7 @@ public class ReflectorDirector : MonoBehaviour
     public float destroyTime = 5.0f; // プレハブが消えるまでの時間
     public string EnemyTag = "Enemy";   // 衝突対象のタグ
     public string bullet = "Bullet";       // 無視するタグ
+    public string spbullet = "SpBullet";       // 無視するタグ
     public Rect validArea;    // 任意の範囲
 
 
@@ -109,7 +110,7 @@ public class ReflectorDirector : MonoBehaviour
 
         // 衝突処理を担当するコンポーネントを追加
         ReflectorController collisionHandler = currentInstance.AddComponent<ReflectorController>();
-        collisionHandler.Initialize(this, EnemyTag, bullet,collisionEnemy,collisionBullet,audioSource);
+        collisionHandler.Initialize(this, EnemyTag, bullet, spbullet, collisionEnemy, collisionBullet, audioSource);
     }
 
     // 一定時間後にプレハブを元の位置に戻すコルーチン

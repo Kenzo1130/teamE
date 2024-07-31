@@ -31,6 +31,7 @@ public class PlayerLifeController : MonoBehaviour
         {
             ShowGameOver();
         }
+        
     }
 
     //“G‚ÆÕ“Ë‚µ‚½‚Æ‚«‚Ìˆ—
@@ -58,6 +59,11 @@ public class PlayerLifeController : MonoBehaviour
         audioSource.PlayOneShot(HealSound);
         life += healAmount;
         if (life > Life.Length) life = Life.Length;
+    }
+
+    public float lifea()
+    {
+        return life;
     }
 }
 
