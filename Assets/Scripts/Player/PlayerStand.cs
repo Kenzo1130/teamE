@@ -11,6 +11,8 @@ public class PlayerStand : MonoBehaviour
 
     int stand;
 
+    int life;
+
     public PlayerLifeController playerLifeController;
 
     void Start()
@@ -19,9 +21,9 @@ public class PlayerStand : MonoBehaviour
     }
     void Update()
     {
-        stand = playerLifeController.life;
+        life = playerLifeController.life;
 
-        switch (stand)
+        switch (life)
         {
             case 0:
                 Stand[0].SetActive(true);
