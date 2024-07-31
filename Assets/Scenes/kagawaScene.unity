@@ -1230,7 +1230,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -1000
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.48235294}
   m_FlipX: 0
@@ -1473,7 +1473,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: -10000
   m_Sprite: {fileID: 7482667652216324306, guid: 311925a002f4447b3a28927169b83ea6, type: 3}
   m_Color: {r: 0, g: 0, b: 0, a: 0.48235294}
   m_FlipX: 0
@@ -1673,6 +1673,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8412287997317714098, guid: 0ee9334c5b948d74b9b32a87dd9b2dab, type: 3}
+  - {fileID: 8412287997317714098, guid: 7db784828a0d52f4c87385a9e4e92d73, type: 3}
   initialPosition: {x: 11, y: 1, z: 0}
   resetTime: 3
   destroyTime: 3
@@ -1681,10 +1682,11 @@ MonoBehaviour:
   spbullet: SpBullet
   validArea:
     serializedVersion: 2
-    x: -8.3
+    x: -8
     y: -10
     width: 16.6
     height: 20
+  colliderSize: {x: 0.8, y: 0.8}
   SEspawn: {fileID: 8300000, guid: 98dd97b87816d164abaaa3a27e83aab6, type: 3}
   collisionEnemy: {fileID: 8300000, guid: d689e6c0cb08075459d2abaff1551b97, type: 3}
   collisionBullet: {fileID: 8300000, guid: 21f51370636d1da4b9a6b7705e78c023, type: 3}
@@ -1711,8 +1713,8 @@ MonoBehaviour:
   minSpawnInterval: 1
   intervalDecreaseRate: 0.1
   decreaseIntervalTime: 3
-  spawnRangeMin: {x: 0, y: 10}
-  spawnRangeMax: {x: 0, y: 10}
+  spawnRangeMin: {x: 0, y: 20}
+  spawnRangeMax: {x: 0, y: 20}
 --- !u!82 &1868111519
 AudioSource:
   m_ObjectHideFlags: 0
