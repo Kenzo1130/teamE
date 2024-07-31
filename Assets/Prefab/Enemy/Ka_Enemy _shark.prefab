@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6669173283397202960}
   - component: {fileID: 5038303834503366127}
   m_Layer: 7
-  m_Name: Ka_Enemy (prototype)_0 1
+  m_Name: Ka_Enemy _shark
   m_TagString: Enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -101,12 +101,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarPrefab: {fileID: 3759765014603301014, guid: 19904944b4536314fb4ff0b4e217d109, type: 3}
-  maxHP: 100
+  maxHP: 10
   speed: -1
-  Emdamage: 10
-  Emdamege_fire: 10
-  Emdamege_shark: 10
-  Emdamege_bat: 10
   reflectorg: Reflector
   EmdamageMultiplier: 3
   itemPrefabs:
@@ -226,10 +222,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefabs:
-  - prefab: {fileID: 7350186137172460854, guid: 1ecbe7559cd153a40ae758b9cec17ef8, type: 3}
-    probability: 0.2
-  - prefab: {fileID: 7350186137172460854, guid: e6e66bcdee1c89e43aacb0e7d24a2f46, type: 3}
+  - prefab: {fileID: 7350186137172460854, guid: 098a9823a5a495c41aa46c9e2462af98, type: 3}
     probability: 0.8
+  - prefab: {fileID: 7350186137172460854, guid: 3f9120a7f45d6934a84609f40311d940, type: 3}
+    probability: 0.2
   Shottime: 2
 --- !u!61 &5038303834503366127
 BoxCollider2D:

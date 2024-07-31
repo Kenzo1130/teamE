@@ -7,7 +7,6 @@ public class Spawner : MonoBehaviour
     {
         public GameObject prefab;
         public float spawnProbability; // 0 to 1
-        public float fallSpeed = 1.0f; // 落下速度
     }
 
     public SpawnableObject[] objectsToSpawn;
@@ -48,18 +47,11 @@ public class Spawner : MonoBehaviour
             Random.Range(spawnRangeMin.y, spawnRangeMax.y)
         );
 
-        GameObject prefabToSpawn = SelectRandomPrefab(out float fallSpeed);
-        GameObject spawnedObject = Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
-
-        // Rigidbody2DのVelocityを設定
-        Rigidbody2D rb = spawnedObject.GetComponent<Rigidbody2D>();
-        if (rb != null)
-        {
-            rb.velocity = new Vector2(0, -fallSpeed);
-        }
+        GameObject prefabToSpawn = SelectRandomPrefab();
+        Instantiate(prefabToSpawn, spawnPosition, Quaternion.identity);
     }
 
-    GameObject SelectRandomPrefab(out float fallSpeed)
+    GameObject SelectRandomPrefab()
     {
         float totalProbability = 0f;
         foreach (var obj in objectsToSpawn)
@@ -73,7 +65,6 @@ public class Spawner : MonoBehaviour
         {
             if (randomPoint < obj.spawnProbability)
             {
-                fallSpeed = obj.fallSpeed;
                 return obj.prefab;
             }
             else
@@ -82,7 +73,7 @@ public class Spawner : MonoBehaviour
             }
         }
 
-        fallSpeed = objectsToSpawn[0].fallSpeed;
+        
         return objectsToSpawn[0].prefab; // デフォルトで最初のプレハブを返す
     }
 }
