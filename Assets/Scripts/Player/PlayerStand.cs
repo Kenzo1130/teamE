@@ -11,18 +11,66 @@ public class PlayerStand : MonoBehaviour
 
     int stand;
 
+    public PlayerLifeController playerLifeController;
+
     void Start()
     {
-
         stand = Stand.Length;
-
     }
     void Update()
     {
-        for (int i = 0; i < Stand.Length; i++)
+        stand = playerLifeController.life;
+
+        switch (stand)
         {
-            Stand[i].SetActive(i < stand);
+            case 0:
+                Stand[0].SetActive(true);
+                Stand[4].SetActive(false);
+                Stand[3].SetActive(false);
+                Stand[2].SetActive(false);
+                Stand[1].SetActive(false);
+                break;
+            case 1:
+                Stand[0].SetActive(true);
+                Stand[4].SetActive(false);
+                Stand[3].SetActive(false);
+                Stand[2].SetActive(false);
+                Stand[1].SetActive(false);
+                break;
+            case 2:
+                Stand[1].SetActive(true);
+                Stand[4].SetActive(false);
+                Stand[3].SetActive(false);
+                Stand[2].SetActive(false);
+                Stand[0].SetActive(false);
+                break;
+            case 3:
+                Stand[2].SetActive(true);
+                Stand[4].SetActive(false);
+                Stand[3].SetActive(false);
+                Stand[1].SetActive(false);
+                Stand[0].SetActive(false);
+                break;
+            case 4:
+                Stand[3].SetActive(true);
+                Stand[4].SetActive(false);
+                Stand[2].SetActive(false);
+                Stand[1].SetActive(false);
+                Stand[0].SetActive(false);
+                break;
+            case 5:
+                Stand[4].SetActive(true);
+                Stand[3].SetActive(false);
+                Stand[2].SetActive(false);
+                Stand[1].SetActive(false);
+                Stand[0].SetActive(false);
+                break;
         }
+   
+        //if (stand == 5)
+        //{
+        //    Stand[4].SetActive(true);
+        //}
     }
 
     //“G‚ÆÕ“Ë‚µ‚½‚Æ‚«‚Ìˆ—
@@ -32,8 +80,14 @@ public class PlayerStand : MonoBehaviour
         {
             //Žc‹@‚ðŒ¸‚ç‚·
             stand--;
+
+            if(stand < 0)
+            {
+                stand = 0;
+            }
         }  
     }
+
 }
 
 

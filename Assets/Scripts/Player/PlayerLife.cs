@@ -13,7 +13,7 @@ public class PlayerLifeController : MonoBehaviour
     AudioSource audioSource;
     
 
-    int life;
+    public int life = 5;
 
     void Start()
     {
