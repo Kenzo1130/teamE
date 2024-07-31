@@ -13,11 +13,15 @@ public class HPBarController : MonoBehaviour
     public float speed = -3;
     // 敵が与えるダメージ量（敵の場合）
     public float Emdamage = 10f;
-    public float SpEmdamege = 30f;
+    public float Emdamege_fire = 10f;
+    public float Emdamege_shark = 10f;
+    public float Emdamege_bat = 10f;
 
     // このキャラクターが敵かどうか
     public string bulletTag = "Bullet";
-    public string spbulletTag = "SpBullet";
+    public string bulletTag_fire = "FireSpBullet";
+    public string bulletTag_shark = "SharkSpBullet";
+    public string bulletTag_bat = "BatBullet";
     public string reflectorg = "Reflector";
 
     // 残りHPにかける数
@@ -91,14 +95,14 @@ public class HPBarController : MonoBehaviour
                 Destroy(collision.gameObject);
             }
         }
-        else if (collision.gameObject.CompareTag(spbulletTag))
-        {
-            TakeDamage(SpEmdamege);
-            if (currentHP > 0)
-            {
-                Destroy(collision.gameObject);
-            }
-        }
+        //else if (collision.gameObject.CompareTag(bulletTag))
+        //{
+        //    TakeDamage(Emdamege_fire);
+        //    if (currentHP > 0)
+        //    {
+        //        Destroy(collision.gameObject);
+        //    }
+        //}
         else if (collision.gameObject.CompareTag(reflectorg))
         {
 
@@ -135,6 +139,10 @@ public class HPBarController : MonoBehaviour
         {
             audioSource.PlayOneShot(enemydamage);
         }
+    }
+    public float GetCurrentHP()
+    {
+        return currentHP;
     }
     void Die()
     {

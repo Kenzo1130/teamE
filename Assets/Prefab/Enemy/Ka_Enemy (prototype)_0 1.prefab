@@ -162,7 +162,7 @@ MonoBehaviour:
   maxHP: 100
   speed: -1
   Emdamage: 10
-  SpEmdamege: 30
+  SpEmdamege: 0
   bulletTag: Bullet
   spbulletTag: SpBullet
   reflectorg: Reflector
@@ -285,7 +285,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletPrefabs:
   - prefab: {fileID: 7350186137172460854, guid: faca97de99569894b81210a3ee433bc0, type: 3}
-    probability: 0.5
+    probability: 0
   - prefab: {fileID: 7350186137172460854, guid: 1ecbe7559cd153a40ae758b9cec17ef8, type: 3}
-    probability: 0.5
+    probability: 1
   Shottime: 2

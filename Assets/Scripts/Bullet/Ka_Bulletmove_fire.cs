@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ka_SpBulletmove : MonoBehaviour
+public class Ka_Bulletmove_fire : MonoBehaviour
 {
     [SerializeField, Header("弾の速さ")] float Speed; //弾のは速さ
     [SerializeField, Header("弾の威力")] float Power; //弾の威力
@@ -46,9 +46,10 @@ public class Ka_SpBulletmove : MonoBehaviour
         Rigid.velocity = direction * Speed;     //オブジェクトの向きに速さをかける計算
     }
 
-    void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
         
+
         if (collision.gameObject.CompareTag(targetTag))
         {
             direction = collision.transform.up;     //触れたオブジェクトに対して垂直に跳ね返る
@@ -56,8 +57,25 @@ public class Ka_SpBulletmove : MonoBehaviour
             // タグを変更
             gameObject.tag = "SpBullet";
         }
+
+
+        
     }
-    // 物体が任意の範囲内にあるかどうかをチェックする関数
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        HPBarController controller = collision.GetComponent<HPBarController>();
+
+        if (gameObject.tag == "SpBullet")
+        {
+            if (collision.gameObject.CompareTag("Enemy"))
+            {
+                Debug.Log("a");
+                Destroy(gameObject);
+                controller.TakeDamage(Power);
+            }
+        }
+    }
+    //物体が任意の範囲内にあるかどうかをチェックする関数
     private bool IsWithinValidArea(Vector3 position)
     {
         return validArea.Contains(new Vector2(position.x, position.y));

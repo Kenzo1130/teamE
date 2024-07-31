@@ -12,9 +12,9 @@ GameObject:
   - component: {fileID: 90292174454406826}
   - component: {fileID: -6879631472796756433}
   - component: {fileID: 2560713769513405708}
-  - component: {fileID: -1830249488033708096}
+  - component: {fileID: 3152906212829736926}
   m_Layer: 6
-  m_Name: Ka_Bullet
+  m_Name: Ka_Bullet_shark
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -76,8 +76,8 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 3df7e530a7448f8408c47f7924dfb309, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Sprite: {fileID: -2413806693520163455, guid: a86470a33a6bf42c4b3595704624658b, type: 3}
+  m_Color: {r: 0.7509433, g: 0, b: 0, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
@@ -149,7 +149,7 @@ CircleCollider2D:
   m_Offset: {x: 0, y: 0}
   serializedVersion: 2
   m_Radius: 0.5
---- !u!114 &-1830249488033708096
+--- !u!114 &3152906212829736926
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -158,7 +158,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 7350186137172460854}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 901a63bce66cf6d4da3f09375fbf47a4, type: 3}
+  m_Script: {fileID: 11500000, guid: f44b64c5b83c20d48a49e64952a4d115, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 10
