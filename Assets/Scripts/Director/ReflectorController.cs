@@ -34,7 +34,7 @@ public class ReflectorController : MonoBehaviour
             audioSource.PlayOneShot(collisionEnemy);
             spawner.DestroyCurrentInstance();
         }
-        else if (collision.gameObject.CompareTag(bullet) || collision.gameObject.CompareTag(spbullet)) 
+        else  
         {
             audioSource.PlayOneShot(collisionBullet);
         }

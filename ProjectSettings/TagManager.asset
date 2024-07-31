@@ -4,12 +4,16 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Bullet
   - Enemy
   - Reflector
   - Shotposition
   - Item
-  - SpBullet
+  - Bullet_fire
+  - Bullet_shark
+  - Bullet_bat
+  - SpBullet_fire
+  - SpBullet_shark
+  - SpBullet_bat
   layers:
   - Default
   - TransparentFX

@@ -1006,7 +1006,7 @@ MonoBehaviour:
   - {fileID: 8412287997317714098, guid: 0ee9334c5b948d74b9b32a87dd9b2dab, type: 3}
   initialPosition: {x: 11, y: 1, z: 0}
   resetTime: 3
-  destroyTime: 5
+  destroyTime: 3
   EnemyTag: Enemy
   bullet: Bullet
   spbullet: SpBullet

@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ka_Bulletmove_fire : MonoBehaviour
+public class Ka_Bulletmove_fireSp : MonoBehaviour
 {
     [SerializeField, Header("弾の速さ")] float Speed; //弾のは速さ
     [SerializeField, Header("弾の威力")] float Power; //弾の威力
@@ -55,10 +55,10 @@ public class Ka_Bulletmove_fire : MonoBehaviour
             direction = collision.transform.up;     //触れたオブジェクトに対して垂直に跳ね返る
             Speed *= magnification;     //オブジェクトに触れた後はスピードが５倍の速さになる
             // タグを変更
-            gameObject.tag = "Bullet_fire";
+            gameObject.tag = "SpBullet_fire";
         }
 
-        if (gameObject.tag == "Bullet_fire")
+        if (gameObject.tag == "SpBullet_fire")
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {

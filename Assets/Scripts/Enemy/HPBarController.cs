@@ -18,10 +18,10 @@ public class HPBarController : MonoBehaviour
     public float Emdamege_bat = 10f;
 
     // このキャラクターが敵かどうか
-    public string bulletTag = "Bullet";
-    public string bulletTag_fire = "FireSpBullet";
-    public string bulletTag_shark = "SharkSpBullet";
-    public string bulletTag_bat = "BatBullet";
+    //public string bulletTag = "Bullet";
+    //public string bulletTag_fire = "FireSpBullet";
+    //public string bulletTag_shark = "SharkSpBullet";
+    //public string bulletTag_bat = "BatBullet";
     public string reflectorg = "Reflector";
 
     // 残りHPにかける数
@@ -67,11 +67,7 @@ public class HPBarController : MonoBehaviour
         hpBarRect = hpBarInstance.transform.Find("health").GetComponent<RectTransform>();
         hpFillImage = hpBarRect.Find("bar").GetComponent<Image>();
 
-        // HPバーの位置をキャラクターの頭上に表示する
-        Vector3 worldPosition = transform.position + new Vector3(0, 1.5f, 0); // キャラクターの頭上の位置にオフセット
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
 
-        hpBarRect.anchoredPosition = screenPosition;
     }
     void Update()
     {
@@ -83,18 +79,18 @@ public class HPBarController : MonoBehaviour
         transform.Translate(0, speed * Time.deltaTime, 0);
     }
 
-    private void OnCollisionEnter2D(Collision2D collision)
+    void OnCollisionEnter2D(Collision2D collision)
     {
-        // 敵がプレイヤーにダメージを与える
-        if (collision.gameObject.CompareTag(bulletTag))
-        {
-            // 上昇中のオブジェクトを消滅させる
-            TakeDamage(Emdamage);
-            if(currentHP > 0)
-            {
-                Destroy(collision.gameObject);
-            }
-        }
+        //// 敵がプレイヤーにダメージを与える
+        //if (collision.gameObject.CompareTag(bulletTag))
+        //{
+        //    // 上昇中のオブジェクトを消滅させる
+        //    TakeDamage(Emdamage);
+        //    if(currentHP > 0)
+        //    {
+        //        Destroy(collision.gameObject);
+        //    }
+        //}
         //else if (collision.gameObject.CompareTag(bulletTag))
         //{
         //    TakeDamage(Emdamege_fire);
@@ -103,7 +99,7 @@ public class HPBarController : MonoBehaviour
         //        Destroy(collision.gameObject);
         //    }
         //}
-        else if (collision.gameObject.CompareTag(reflectorg))
+        if (collision.gameObject.CompareTag(reflectorg))
         {
 
         }
