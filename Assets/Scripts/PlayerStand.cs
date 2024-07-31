@@ -1,3 +1,4 @@
+using System;
 using System.Linq;
 using Unity.VisualScripting;
 using UnityEditor.Experimental.GraphView;
@@ -6,30 +7,21 @@ using UnityEngine.UIElements;
 
 public class PlayerStand : MonoBehaviour
 {
-    public GameObject[] Life;
-    public GameObject textGameOver;
-    public AudioClip DamageSound;
-    public AudioClip HealSound;
-    AudioSource audioSource;
-    
+    public GameObject[] Stand;
 
-    int life;
+    int stand;
 
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();
-        life = Life.Length;
-        textGameOver.SetActive(false);
+
+        stand = Stand.Length;
+
     }
     void Update()
     {
-        for (int i = 0; i < Life.Length; i++)
+        for (int i = 0; i < Stand.Length; i++)
         {
-            Life[i].SetActive(i < life);
-        }
-        if (life == 0)
-        {
-            ShowGameOver();
+            Stand[i].SetActive(i < stand);
         }
     }
 
@@ -39,25 +31,8 @@ public class PlayerStand : MonoBehaviour
         if (collision.CompareTag("Enemy"))
         {
             //Žc‹@‚ðŒ¸‚ç‚·
-            life--;
-            audioSource.PlayOneShot(DamageSound);
+            stand--;
         }  
-        
-        if (collision.CompareTag("Bullet"))
-        {
-           Destroy(collision.gameObject);
-        }
-    }
-
-    void ShowGameOver()
-    {
-        textGameOver.SetActive(true);
-    }
-    public void Heal(int healAmount)
-    {
-        audioSource.PlayOneShot(HealSound);
-        life += healAmount;
-        if (life > Life.Length) life = Life.Length;
     }
 }
 
