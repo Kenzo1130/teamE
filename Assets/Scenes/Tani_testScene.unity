@@ -748,8 +748,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 8412287997317714098, guid: 0ee9334c5b948d74b9b32a87dd9b2dab, type: 3}
-  initialPosition: {x: 11, y: 1, z: 0}
+  - {fileID: 8412287997317714098, guid: 4dd99da2732413e45b094e614821706f, type: 3}
+  - {fileID: 8412287997317714098, guid: d3bd8b24a4ad88e488fabd099d668abc, type: 3}
+  - {fileID: 8412287997317714098, guid: 9c5410f874c78214ca9fae5187adb1d4, type: 3}
+  initialPosition: {x: 23, y: 5, z: 0}
   resetTime: 3
   destroyTime: 3
   EnemyTag: Enemy
@@ -757,10 +759,11 @@ MonoBehaviour:
   spbullet: SpBullet
   validArea:
     serializedVersion: 2
-    x: -8.3
-    y: -10
-    width: 16.6
-    height: 20
+    x: -16.6
+    y: -20
+    width: 33.2
+    height: 40
+  colliderSize: {x: 10, y: 2}
   SEspawn: {fileID: 8300000, guid: 98dd97b87816d164abaaa3a27e83aab6, type: 3}
   collisionEnemy: {fileID: 8300000, guid: d689e6c0cb08075459d2abaff1551b97, type: 3}
   collisionBullet: {fileID: 8300000, guid: 21f51370636d1da4b9a6b7705e78c023, type: 3}
@@ -829,7 +832,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 8300000, guid: 21f51370636d1da4b9a6b7705e78c023, type: 3}
   m_PlayOnAwake: 0
-  m_Volume: 0.3
+  m_Volume: 0.5
   m_Pitch: 1
   Loop: 0
   Mute: 0
