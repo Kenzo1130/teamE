@@ -12,7 +12,9 @@ public class ReflectorDirector : MonoBehaviour
     public string bullet = "Bullet";       // 無視するタグ
     public string spbullet = "SpBullet";       // 無視するタグ
     public Rect validArea;    // 任意の範囲
-    public Vector2 colliderSize = new Vector2(1.0f, 1.0f); // コライダーのサイズ
+    public Vector2 initialColliderSize = new Vector2(1.0f, 1.0f); // 生成時のコライダーのサイズ
+    public Vector2 releaseColliderSize = new Vector2(0.5f, 0.5f); // 離された時のコライダーのサイズ
+
 
     private GameObject currentInstance;   // 現在のプレハブインスタンス
     private bool isMouseDown = false;   // マウスが押されているかどうか
@@ -56,6 +58,7 @@ public class ReflectorDirector : MonoBehaviour
             // コライダーを有効化
             if (currentCollider != null)
             {
+                SetColliderSize(currentCollider, releaseColliderSize); // 離されたときのコライダーサイズを設定
                 currentCollider.enabled = true;
             }
 
@@ -104,11 +107,13 @@ public class ReflectorDirector : MonoBehaviour
         currentInstance.transform.position = initialPosition;
 
         // コライダーを適切なサイズに設定
-        SetColliderSize(currentInstance);
+        SetColliderSize(currentCollider, releaseColliderSize);
 
         currentCollider = currentInstance.GetComponent<Collider2D>();
         if (currentCollider != null)
         {
+            // 生成時のコライダーサイズを設定
+            SetColliderSize(currentCollider, initialColliderSize);
             currentCollider.enabled = true; // 初期状態でコライダーを有効化
         }
 
@@ -117,21 +122,19 @@ public class ReflectorDirector : MonoBehaviour
         collisionHandler.Initialize(this, EnemyTag, bullet, spbullet, collisionEnemy, collisionBullet, audioSource);
     }
 
-    private void SetColliderSize(GameObject instance)
+    private void SetColliderSize(Collider2D collider, Vector2 size)
     {
-        Collider2D collider = instance.GetComponent<Collider2D>();
-        if (collider != null)
+
+        if (collider is BoxCollider2D boxCollider)
         {
-            if (collider is BoxCollider2D boxCollider)
-            {
-                boxCollider.size = colliderSize; // BoxColliderのサイズを設定
-            }
-            else if (collider is CircleCollider2D circleCollider)
-            {
-                circleCollider.radius = colliderSize.x / 2; // CircleColliderの半径を設定
-            }
-            // 他のコライダータイプもここで設定できます
+            boxCollider.size = size; // BoxColliderのサイズを設定
         }
+        else if (collider is CircleCollider2D circleCollider)
+        {
+            circleCollider.radius = size.x / 2; // CircleColliderの半径を設定
+        }
+        // 他のコライダータイプもここで設定できます
+
     }
 
 
@@ -150,6 +153,8 @@ public class ReflectorDirector : MonoBehaviour
             // コライダーを有効化
             if (currentCollider != null)
             {
+                // 初期位置に戻すときにコライダーサイズを元に戻す
+                SetColliderSize(currentCollider, initialColliderSize);
                 currentCollider.enabled = true;
             }
         }
