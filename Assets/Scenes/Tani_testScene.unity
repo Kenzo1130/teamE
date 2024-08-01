@@ -738,8 +738,8 @@ MonoBehaviour:
   minSpawnInterval: 3
   intervalDecreaseRate: 0.1
   decreaseIntervalTime: 100
-  spawnRangeMin: {x: -18, y: 20}
-  spawnRangeMax: {x: 18, y: 21}
+  spawnRangeMin: {x: -17, y: 20}
+  spawnRangeMax: {x: 17, y: 21}
 --- !u!114 &535422724
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -759,7 +759,7 @@ MonoBehaviour:
   - {fileID: 8412287997317714098, guid: 73e04dec4e25b054d818bde095fe9d18, type: 3}
   - {fileID: 8412287997317714098, guid: 48957e4bdc957b7409d464ceba1596bc, type: 3}
   - {fileID: 8412287997317714098, guid: 114006ead2722bf428e0f960c14a97c4, type: 3}
-  initialPosition: {x: 22, y: 15, z: 0}
+  initialPosition: {x: 21, y: 15, z: 0}
   resetTime: 1
   destroyTime: 1
   EnemyTag: Enemy
@@ -1033,13 +1033,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   prefabs:
-  - {fileID: 8412287997317714098, guid: 4dd99da2732413e45b094e614821706f, type: 3}
-  - {fileID: 8412287997317714098, guid: d3bd8b24a4ad88e488fabd099d668abc, type: 3}
-  - {fileID: 8412287997317714098, guid: 9c5410f874c78214ca9fae5187adb1d4, type: 3}
-  - {fileID: 8412287997317714098, guid: 73e04dec4e25b054d818bde095fe9d18, type: 3}
-  - {fileID: 8412287997317714098, guid: 48957e4bdc957b7409d464ceba1596bc, type: 3}
-  - {fileID: 8412287997317714098, guid: 114006ead2722bf428e0f960c14a97c4, type: 3}
-  initialPosition: {x: 28, y: 15, z: 0}
+  - {fileID: 8412287997317714098, guid: d91a3ad5e64c2a148b4edf65571388bb, type: 3}
+  - {fileID: 8412287997317714098, guid: bcb3e6e88b4d63b4eae9c6d64c0a3841, type: 3}
+  - {fileID: 8412287997317714098, guid: f196e1c9540cf06478a393cba9fdde03, type: 3}
+  initialPosition: {x: 32, y: 15, z: 0}
   resetTime: 5
   destroyTime: 5
   EnemyTag: Enemy

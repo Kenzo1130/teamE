@@ -163,11 +163,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 6
   Power: 30
-  magnification: 5
+  magnification: 7
   targetTag: Reflector
   validArea:
     serializedVersion: 2
-    x: -16.6
+    x: -17
     y: -20
     width: 33.2
     height: 40
