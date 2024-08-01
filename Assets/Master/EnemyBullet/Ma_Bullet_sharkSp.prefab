@@ -30,7 +30,7 @@ Transform:
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 5, y: 5, z: 1}
+  m_LocalScale: {x: 7, y: 7, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -136,11 +136,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Speed: 4
   Power: 45
-  magnification: 5
+  magnification: 10
   targetTag: Reflector
   validArea:
     serializedVersion: 2
-    x: -16.6
+    x: -17
     y: -20
     width: 33.2
     height: 40
