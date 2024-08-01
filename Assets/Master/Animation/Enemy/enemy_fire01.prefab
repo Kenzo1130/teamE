@@ -31,7 +31,7 @@ Transform:
   m_GameObject: {fileID: 5292441201797288847}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.0361013, y: -0.42893648, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -107,8 +107,8 @@ MonoBehaviour:
   reflectorg: Reflector
   EmdamageMultiplier: 3
   itemPrefabs:
-  - {fileID: 7350186137172460854, guid: c375952a2ced50142af983045a0b2b35, type: 3}
-  dropProbability: 0.05
+  - {fileID: 7350186137172460854, guid: 188294de7ecb9bc47888daa61468e09b, type: 3}
+  dropProbability: 0.1
   dropSpeed: 5
   animator: {fileID: 0}
   scoreValue: 10
@@ -228,6 +228,7 @@ MonoBehaviour:
   - prefab: {fileID: 7350186137172460854, guid: 8b2205b293076d84884973fe90d4750d, type: 3}
     probability: 0.2
   Shottime: 2
+  bulletposition: 1
 --- !u!61 &-6542967685538529832
 BoxCollider2D:
   m_ObjectHideFlags: 0
