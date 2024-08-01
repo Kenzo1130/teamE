@@ -12,7 +12,7 @@ public class HPBarController : MonoBehaviour
     public float maxHP = 100;
     public float speed = -3;
    
-    public string reflectorg = "Reflector";
+    public string reflector = "Reflector";
 
     // écÇËHPÇ…Ç©ÇØÇÈêî
     public float EmdamageMultiplier = 1.5f;
@@ -89,10 +89,10 @@ public class HPBarController : MonoBehaviour
         //        Destroy(collision.gameObject);
         //    }
         //}
-        if (collision.gameObject.CompareTag(reflectorg))
-        {
+        //if (collision.gameObject.CompareTag(reflector))
+        //{
 
-        }
+        //}
     }
     private void OnTriggerEnter2D(Collider2D collision)
     {
@@ -100,6 +100,10 @@ public class HPBarController : MonoBehaviour
         {
             Destroy(hpBarInstance);
             Destroy(gameObject);
+        }
+        else if (collision.CompareTag(reflector))
+        {
+            Destroy(collision.gameObject);
         }
     }
     public void TakeDamage(float Emdamage)

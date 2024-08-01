@@ -566,7 +566,7 @@ MonoBehaviour:
   - {fileID: 412966583}
   - {fileID: 610536106}
   textGameOver: {fileID: 791934549712294176}
-  DamageSound: {fileID: 8300000, guid: 335ba501d3631a94ea00227bfecef8a4, type: 3}
+  DamageSound: {fileID: 0}
   HealSound: {fileID: 8300000, guid: 6c364f83e73f3ee4387362f0d9ab7740, type: 3}
   life: 4
 --- !u!61 &574955026
@@ -1685,7 +1685,8 @@ MonoBehaviour:
     y: -10
     width: 16.6
     height: 20
-  colliderSize: {x: 1, y: 1}
+  initialColliderSize: {x: 1, y: 1}
+  releaseColliderSize: {x: 4, y: 0.5}
   SEspawn: {fileID: 8300000, guid: 98dd97b87816d164abaaa3a27e83aab6, type: 3}
   collisionEnemy: {fileID: 8300000, guid: d689e6c0cb08075459d2abaff1551b97, type: 3}
   collisionBullet: {fileID: 8300000, guid: 21f51370636d1da4b9a6b7705e78c023, type: 3}
@@ -1711,7 +1712,7 @@ MonoBehaviour:
   initialSpawnInterval: 100
   minSpawnInterval: 1
   intervalDecreaseRate: 0.1
-  decreaseIntervalTime: 3
+  decreaseIntervalTime: 100
   spawnRangeMin: {x: 0, y: 20}
   spawnRangeMax: {x: 0, y: 20}
 --- !u!82 &1868111519
