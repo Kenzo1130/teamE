@@ -102,7 +102,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarPrefab: {fileID: 3759765014603301014, guid: 19904944b4536314fb4ff0b4e217d109, type: 3}
-  maxHP: 200
+  maxHP: 1000
   speed: -0.2
   reflectorg: Reflector
   EmdamageMultiplier: 3
