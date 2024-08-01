@@ -16,6 +16,8 @@ public class Ka_Enemyshot : MonoBehaviour
     [SerializeField, Header("弾を発射する時間の間隔")]
     float Shottime;              //弾を発射する時間の間隔
 
+    public float bulletposition;
+
     private float Shotcount;     // 設定したShottimeになるまでのカウントをする変数
 
 
@@ -43,7 +45,7 @@ public class Ka_Enemyshot : MonoBehaviour
         if (bulletObj != null)
         {
             GameObject bullet = Instantiate(bulletObj); // 選択した弾のプレハブをインスタンス化
-            bullet.transform.position = transform.position + new Vector3(0f, transform.lossyScale.y / -2.0f, 0f); // 弾が発射される位置をEnemyオブジェクトの半分の位置にする
+            bullet.transform.position = transform.position + new Vector3(0f, -transform.lossyScale.y -  bulletposition, 0f); // 弾が発射される位置をEnemyオブジェクトの半分の位置にする
         }
         Shotcount = 0.0f; // 弾を発射するたびカウントをリセットする
     }
