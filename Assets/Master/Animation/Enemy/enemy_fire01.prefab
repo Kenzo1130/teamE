@@ -227,7 +227,7 @@ MonoBehaviour:
     probability: 0.8
   - prefab: {fileID: 7350186137172460854, guid: 8b2205b293076d84884973fe90d4750d, type: 3}
     probability: 0.2
-  Shottime: 1
+  Shottime: 2
 --- !u!61 &-6542967685538529832
 BoxCollider2D:
   m_ObjectHideFlags: 0

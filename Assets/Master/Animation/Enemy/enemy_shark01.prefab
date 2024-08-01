@@ -102,8 +102,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarPrefab: {fileID: 3759765014603301014, guid: 19904944b4536314fb4ff0b4e217d109, type: 3}
-  maxHP: 100
-  speed: -2.5
+  maxHP: 80
+  speed: -2
   reflectorg: Reflector
   EmdamageMultiplier: 3
   itemPrefabs:
@@ -227,7 +227,7 @@ MonoBehaviour:
     probability: 0.8
   - prefab: {fileID: 7350186137172460854, guid: b955a530fbfbaf84ead2762d39321272, type: 3}
     probability: 0.2
-  Shottime: 3
+  Shottime: 1.5
 --- !u!61 &937091167944757620
 BoxCollider2D:
   m_ObjectHideFlags: 0
