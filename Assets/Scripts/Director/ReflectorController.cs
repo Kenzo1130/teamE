@@ -41,7 +41,6 @@ public class ReflectorController : MonoBehaviour
     {
         if (collision.CompareTag(targetTag))
         {
-            Debug.Log("a");
             audioSource.PlayOneShot(collisionEnemy);
             spawner.DestroyCurrentInstance();
         }
