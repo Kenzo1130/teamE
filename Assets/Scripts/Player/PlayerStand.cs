@@ -13,7 +13,7 @@ public class PlayerStand : MonoBehaviour
 
     int life;
 
-    public PlayerLifeController playerLifeController;
+    public PlayerLife playerLife;
 
     void Start()
     {
@@ -21,7 +21,7 @@ public class PlayerStand : MonoBehaviour
     }
     void Update()
     {
-        life = playerLifeController.life;
+        life = playerLife.lifea(life);
 
         switch (life)
         {

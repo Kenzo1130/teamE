@@ -13,7 +13,7 @@ public class Item_Heal : MonoBehaviour
         // "Player"ƒ^ƒO‚Ì•¨‘Ì‚ÆG‚ê‚½‚Æ‚«
         if (other.CompareTag(targetTag))
         {
-            PlayerLifeController playerHP = other.GetComponent<PlayerLifeController>();
+            PlayerLife playerHP = other.GetComponent<PlayerLife>();
             if (playerHP != null)
             {
                 playerHP.Heal(healAmount); // HP‚ğ1‰ñ•œ

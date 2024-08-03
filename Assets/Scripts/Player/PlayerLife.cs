@@ -4,7 +4,7 @@ using UnityEditor.Experimental.GraphView;
 using UnityEngine;
 using UnityEngine.UIElements;
 
-public class PlayerLifeController : MonoBehaviour
+public class PlayerLife : MonoBehaviour
 {
     public GameObject[] Life;
     public GameObject textGameOver;
@@ -13,7 +13,7 @@ public class PlayerLifeController : MonoBehaviour
     AudioSource audioSource;
     
 
-    public int life ;
+    int life ;
 
     void Start()
     {
@@ -65,7 +65,7 @@ public class PlayerLifeController : MonoBehaviour
         if (life > Life.Length) life = Life.Length;
     }
 
-    public float lifea()
+    public int lifea(int Life)
     {
         return life;
     }

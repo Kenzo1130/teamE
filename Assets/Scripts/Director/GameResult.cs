@@ -7,13 +7,17 @@ using UnityEngine.SceneManagement;
 public class GameResult : MonoBehaviour
 {
 
-    int HP = 0;
-    private bool Result = false;
     [SerializeField] GameObject UI_Result;
+
+    int life;
+
+    public PlayerLife playerLife;
 
     void Update()
     {
-        if (HP <= 0)
+        life = playerLife.lifea(life);
+
+        if (life <= 0)
         {
             ResultGame();
         }
@@ -23,7 +27,6 @@ public class GameResult : MonoBehaviour
     {
         Time.timeScale = 0;
         UI_Result.SetActive(true);
-        Result = true;
     }
 
     public void RetryButtonPress()
