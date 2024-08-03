@@ -44,11 +44,6 @@ public class ReflectorDirector : MonoBehaviour
     {
         life = playerLife.lifea(life);
 
-        if (life <= 0)
-        {
-            return;
-        }
-
         if (isWaiting)
         {
             // 一時停止中はマウスの動きに反応しない
@@ -65,8 +60,6 @@ public class ReflectorDirector : MonoBehaviour
         }
         else if (isMouseDown && Input.GetMouseButtonUp(0))
         {
-
-
             // マウスの左ボタンが離された時
             isMouseDown = false;
 
@@ -111,7 +104,10 @@ public class ReflectorDirector : MonoBehaviour
             }
         }
 
-        
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 
     // プレハブのインスタンスを任意の初期位置に配置する関数
