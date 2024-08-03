@@ -162,8 +162,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Speed: 6
-  Power: 30
-  magnification: 7
+  Power: 80
+  magnification: 8
   targetTag: Reflector
   validArea:
     serializedVersion: 2
