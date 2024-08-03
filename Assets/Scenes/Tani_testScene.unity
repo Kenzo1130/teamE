@@ -772,7 +772,7 @@ MonoBehaviour:
     width: 33.2
     height: 40
   initialColliderSize: {x: 10, y: 6}
-  releaseColliderSize: {x: 0, y: 0}
+  releaseColliderSize: {x: 9, y: 1}
   SEspawn: {fileID: 8300000, guid: 98dd97b87816d164abaaa3a27e83aab6, type: 3}
   collisionEnemy: {fileID: 8300000, guid: d689e6c0cb08075459d2abaff1551b97, type: 3}
   collisionBullet: {fileID: 8300000, guid: 21f51370636d1da4b9a6b7705e78c023, type: 3}
@@ -1050,7 +1050,7 @@ MonoBehaviour:
     width: 33.2
     height: 40
   initialColliderSize: {x: 9, y: 5}
-  releaseColliderSize: {x: 0, y: 0}
+  releaseColliderSize: {x: 9, y: 1}
   SEspawn: {fileID: 8300000, guid: 98dd97b87816d164abaaa3a27e83aab6, type: 3}
   collisionEnemy: {fileID: 8300000, guid: d689e6c0cb08075459d2abaff1551b97, type: 3}
   collisionBullet: {fileID: 8300000, guid: 21f51370636d1da4b9a6b7705e78c023, type: 3}
