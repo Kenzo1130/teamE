@@ -1,5 +1,6 @@
 using UnityEngine;
 using UnityEngine.UI;
+using static Ka_Enemyshot;
 
 public class HPBarController : MonoBehaviour
 {
@@ -37,10 +38,15 @@ public class HPBarController : MonoBehaviour
     public AudioClip enemydamage;
     AudioSource audioSource; // AudioSourceコンポーネント
 
+    PlayerLife playerLife;
+    int life;
+
     private Collider2D currentCollider;   // 現在のプレハブのコライダー
 
     void Start()
     {
+        playerLife = FindObjectOfType<PlayerLife>();
+
         currentCollider = GetComponent<Collider2D>();
 
         currentCollider.enabled = true;
@@ -61,12 +67,21 @@ public class HPBarController : MonoBehaviour
     }
     void Update()
     {
-        // HPバーの位置をキャラクターの頭上に表示する
-        Vector3 worldPosition = transform.position + new Vector3(0, 1.5f, 0); // キャラクターの頭上の位置にオフセット
-        Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
+        life = playerLife.lifea(life);
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+            Destroy(hpBarInstance);
+        }
+        else
+        {
+            // HPバーの位置をキャラクターの頭上に表示する
+            Vector3 worldPosition = transform.position + new Vector3(0, 1.5f, 0); // キャラクターの頭上の位置にオフセット
+            Vector3 screenPosition = Camera.main.WorldToScreenPoint(worldPosition);
 
-        hpBarRect.anchoredPosition = screenPosition;
-        transform.Translate(0, speed * Time.deltaTime, 0);
+            hpBarRect.anchoredPosition = screenPosition;
+            transform.Translate(0, speed * Time.deltaTime, 0);
+        }
     }
 
     void OnCollisionEnter2D(Collision2D collision)

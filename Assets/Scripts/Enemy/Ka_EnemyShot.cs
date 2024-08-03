@@ -35,19 +35,19 @@ public class Ka_Enemyshot : MonoBehaviour
 
     private void Shotting()
     {
-        Shotcount += Time.deltaTime;
-        if (Shotcount < Shottime)
-        {
-            return; // Shotcountの値がShottimeの値より小さい場合は処理をおこなわない
-        }
+            Shotcount += Time.deltaTime;
+            if (Shotcount < Shottime)
+            {
+                return; // Shotcountの値がShottimeの値より小さい場合は処理をおこなわない
+            }
 
-        GameObject bulletObj = SelectBullet(); // 確率に応じて弾を選択
-        if (bulletObj != null)
-        {
-            GameObject bullet = Instantiate(bulletObj); // 選択した弾のプレハブをインスタンス化
-            bullet.transform.position = transform.position + new Vector3(0f, -transform.lossyScale.y -  bulletposition, 0f); // 弾が発射される位置をEnemyオブジェクトの半分の位置にする
-        }
-        Shotcount = 0.0f; // 弾を発射するたびカウントをリセットする
+            GameObject bulletObj = SelectBullet(); // 確率に応じて弾を選択
+            if (bulletObj != null)
+            {
+                GameObject bullet = Instantiate(bulletObj); // 選択した弾のプレハブをインスタンス化
+                bullet.transform.position = transform.position + new Vector3(0f, -transform.lossyScale.y - bulletposition, 0f); // 弾が発射される位置をEnemyオブジェクトの半分の位置にする
+            }
+            Shotcount = 0.0f; // 弾を発射するたびカウントをリセットする
     }
 
     private GameObject SelectBullet()

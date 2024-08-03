@@ -7,12 +7,13 @@ public class GameOverScene : MonoBehaviour
 {
     [SerializeField] GameObject UI_Result;
 
-    public PlayerLife playerLife;
+    PlayerLife playerLife;
 
     int life;
 
     void Start()
     {
+        playerLife = FindObjectOfType<PlayerLife>();
         UI_Result.SetActive(false);
     }
     void Update()
