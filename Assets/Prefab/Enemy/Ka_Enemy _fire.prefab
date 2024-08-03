@@ -227,7 +227,7 @@ MonoBehaviour:
   - prefab: {fileID: 7350186137172460854, guid: 8adcb3b442679e3498215099054f35f1, type: 3}
     probability: 0.2
   Shottime: 2
-  bulletposition: 10
+  bulletposition: 1
 --- !u!60 &5524243741234341277
 PolygonCollider2D:
   m_ObjectHideFlags: 0
