@@ -23,6 +23,8 @@ public class PlayerLife : MonoBehaviour
     }
     void Update()
     {
+        lifea(life);
+
         for (int i = 0; i < Life.Length; i++)
         {
             Life[i].SetActive(i < life);
