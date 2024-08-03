@@ -16,7 +16,7 @@ public class ScoreManager : MonoBehaviour
     }
     void Update()
     {
-        ScoreA(score);
+        AddScore(score);
     }
     void Awake()
     {
