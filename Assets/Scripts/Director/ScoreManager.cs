@@ -42,10 +42,7 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         scoreText.text = "" + score;
-        if (life <= 0)
-        {
-            AddScore(score);
-        }
+        
     }
 
     public int GetScore()

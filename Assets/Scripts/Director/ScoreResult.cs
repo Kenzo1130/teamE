@@ -23,7 +23,7 @@ public class ScoreResult : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-       Resultsocre.enabled = false;
+       
        life = playerLife.lifea(life);
        
 
@@ -34,6 +34,7 @@ public class ScoreResult : MonoBehaviour
             return;
             
         }
+        else Resultsocre.enabled = false;
     }
 
     
