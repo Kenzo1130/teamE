@@ -31,8 +31,8 @@ Transform:
   m_GameObject: {fileID: 2892312675830737775}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 8.486513, y: 2.1999347, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -102,13 +102,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   hpBarPrefab: {fileID: 3759765014603301014, guid: 19904944b4536314fb4ff0b4e217d109, type: 3}
-  maxHP: 100
-  speed: -0.5
+  maxHP: 60
+  speed: -1.8
   reflectorg: Reflector
   EmdamageMultiplier: 3
   itemPrefabs:
-  - {fileID: 7350186137172460854, guid: c375952a2ced50142af983045a0b2b35, type: 3}
-  dropProbability: 0.1
+  - {fileID: 7350186137172460854, guid: 188294de7ecb9bc47888daa61468e09b, type: 3}
+  dropProbability: 0.2
   dropSpeed: 5
   animator: {fileID: 0}
   scoreValue: 50
@@ -227,7 +227,8 @@ MonoBehaviour:
     probability: 0.8
   - prefab: {fileID: 7350186137172460854, guid: b955a530fbfbaf84ead2762d39321272, type: 3}
     probability: 0.2
-  Shottime: 3
+  Shottime: 1.5
+  bulletposition: 1
 --- !u!61 &937091167944757620
 BoxCollider2D:
   m_ObjectHideFlags: 0
