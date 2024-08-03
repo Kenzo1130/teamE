@@ -48,8 +48,8 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public int GetScore(int x)
+    public int GetScore()
     {
-        return x;
+        return score;
     }
 }

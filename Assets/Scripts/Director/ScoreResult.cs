@@ -27,12 +27,13 @@ public class ScoreResult : MonoBehaviour
     {
        Resultsocre.enabled = false;
        life = playerLife.lifea(life);
-       score = scoreManager.GetScore(score);
+       
 
         if (life <= 0)
         {
-            Resultsocre.text = "" + score;
+            Resultsocre.text = "" + ScoreManager.instance.GetScore();
             Resultsocre.enabled = true;
+            return;
             
         }
     }
