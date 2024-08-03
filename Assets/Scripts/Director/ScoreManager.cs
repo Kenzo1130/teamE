@@ -49,4 +49,9 @@ public class ScoreManager : MonoBehaviour
     {
         return score;
     }
+    public void ResetScore()
+    {
+        score = 0;
+        Debug.Log("Score has been reset.");
+    }
 }
