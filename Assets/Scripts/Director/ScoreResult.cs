@@ -9,15 +9,13 @@ public class ScoreResult : MonoBehaviour
     
     public Text Resultsocre;
 
-    ScoreManager scoreManager;
-    int score;
-
+    
     PlayerLife playerLife;
     int life;
     // Start is called before the first frame update
     void Start()
     {
-        scoreManager = FindObjectOfType<ScoreManager>();
+        
         playerLife = FindObjectOfType<PlayerLife>();
         Resultsocre.enabled = false;
     }
