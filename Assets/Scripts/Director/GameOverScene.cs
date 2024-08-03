@@ -11,14 +11,17 @@ public class GameOverScene : MonoBehaviour
 
     int life;
 
+    ScoreResult scoreResult;
+
     void Start()
     {
+        scoreResult = FindObjectOfType<ScoreResult>();
         playerLife = FindObjectOfType<PlayerLife>();
         UI_Result.SetActive(false);
     }
     void Update()
     {
-
+        
         life = playerLife.lifea(life);
 
         if (life <= 0)
@@ -38,6 +41,9 @@ public class GameOverScene : MonoBehaviour
     }
     public void RetryButtonPress()
     {
+        ScoreManager.instance.ResetScore();
+
+        ScoreResult.iNstance.HideText();
         //Time.timeScale = 1;
         SceneManager.LoadScene("Tani_testScene");
     }

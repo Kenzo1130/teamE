@@ -6,8 +6,8 @@ using UnityEngine.UI;
 
 public class ScoreResult : MonoBehaviour
 {
-    
-    public Text Resultsocre;
+    public static ScoreResult iNstance;
+    public Text scoreResult;
 
     
     PlayerLife playerLife;
@@ -17,7 +17,7 @@ public class ScoreResult : MonoBehaviour
     {
         
         playerLife = FindObjectOfType<PlayerLife>();
-        Resultsocre.enabled = false;
+        scoreResult.enabled = false;
     }
 
     // Update is called once per frame
@@ -29,13 +29,16 @@ public class ScoreResult : MonoBehaviour
 
         if (life <= 0)
         {
-            Resultsocre.text = "" + ScoreManager.instance.GetScore();
-            Resultsocre.enabled = true;
+            scoreResult.text = "" + ScoreManager.instance.GetScore();
+            scoreResult.enabled = true;
             return;
             
         }
-        else Resultsocre.enabled = false;
+        else scoreResult.enabled = false;
     }
 
-    
+    public void HideText()
+    {
+        scoreResult.enabled = false; // テキストを非表示にする
+    }
 }
