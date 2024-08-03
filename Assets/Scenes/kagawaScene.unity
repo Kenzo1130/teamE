@@ -568,7 +568,6 @@ MonoBehaviour:
   textGameOver: {fileID: 791934549712294176}
   DamageSound: {fileID: 8300000, guid: 335ba501d3631a94ea00227bfecef8a4, type: 3}
   HealSound: {fileID: 8300000, guid: 6c364f83e73f3ee4387362f0d9ab7740, type: 3}
-  life: 4
 --- !u!61 &574955026
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -822,7 +821,7 @@ MonoBehaviour:
   - {fileID: 467580301}
   - {fileID: 874002006}
   - {fileID: 738132487}
-  playerLifeController: {fileID: 574955025}
+  playerLife: {fileID: 574955025}
 --- !u!1 &610536106
 GameObject:
   m_ObjectHideFlags: 0
