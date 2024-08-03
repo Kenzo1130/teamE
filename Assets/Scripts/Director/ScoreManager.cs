@@ -14,8 +14,13 @@ public class ScoreManager : MonoBehaviour
         score = 0;
         scoreText.text = "" + score;
     }
+    void Update()
+    {
+        ScoreA(score);
+    }
     void Awake()
     {
+
         if (instance == null)
         {
             instance = this;
@@ -31,5 +36,10 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         scoreText.text = "" + score;
+    }
+
+    public int ScoreA(int score)
+    {
+        return score;
     }
 }
