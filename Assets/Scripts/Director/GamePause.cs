@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GamePause : MonoBehaviour
 {
@@ -34,5 +35,15 @@ public class GamePause : MonoBehaviour
         Time.timeScale = 1;
         Pause = false;
         UI_Pause.SetActive(false);
+    }
+    public void ResumeButtonPress()
+    {
+        Time.timeScale = 1;
+        Pause = false;
+        UI_Pause.SetActive(false);
+    }
+    public void ExitButtonPress()
+    {
+        SceneManager.LoadScene("TitleScene");
     }
 }
