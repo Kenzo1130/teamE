@@ -17,7 +17,7 @@ public class PlayerStand : MonoBehaviour
 
     void Start()
     {
-        stand = Stand.Length;
+       
     }
     void Update()
     {
@@ -74,22 +74,6 @@ public class PlayerStand : MonoBehaviour
         //    Stand[4].SetActive(true);
         //}
     }
-
-    //“G‚ÆÕ“Ë‚µ‚½‚Æ‚«‚Ìˆ—
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.CompareTag("Enemy"))
-        {
-            //c‹@‚ğŒ¸‚ç‚·
-            stand--;
-
-            if(stand < 0)
-            {
-                stand = 0;
-            }
-        }  
-    }
-
 }
 
 
