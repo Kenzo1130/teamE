@@ -37,8 +37,7 @@ public class Spawner : MonoBehaviour
         life = playerLife.lifea(life);
         if (life <= 0)
         {
-            initialSpawnInterval = 1000000000.0f;
-            decreaseIntervalTime = 1000000000.0f;
+            return;
         }
         timeSinceLastDecrease += Time.deltaTime;
         if (timeSinceLastDecrease >= decreaseIntervalTime)
