@@ -46,6 +46,9 @@ TagManager:
   - name: Stand
     uniqueID: 4220732803
     locked: 0
+  - name: backGround
+    uniqueID: 4158373947
+    locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
