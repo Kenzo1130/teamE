@@ -23,7 +23,7 @@ public class GamePause : MonoBehaviour
         }
     }
 
-    void PauseGame()
+    public void PauseGame()
     {
         Time.timeScale = 0;
         UI_Pause.SetActive(true);
