@@ -8,6 +8,21 @@ public class Item_Heal : MonoBehaviour
     public int healAmount = 1;
     
     public string targetTag = "Target";   // 衝突対象のタグ
+
+    PlayerLife playerLife;
+    int life;
+    private void Start()
+    {
+        playerLife = FindObjectOfType<PlayerLife>();
+    }
+    private void Update()
+    {
+        life =playerLife.lifea(life);
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+        }
+    }
     public void OnTriggerEnter2D(Collider2D other)
     {
         // "Player"タグの物体と触れたとき

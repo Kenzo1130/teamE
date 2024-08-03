@@ -13,11 +13,11 @@ public class PlayerStand : MonoBehaviour
 
     int life;
 
-    public PlayerLife playerLife;
+    PlayerLife playerLife;
 
     void Start()
     {
-       
+        playerLife = FindObjectOfType<PlayerLife>();
     }
     void Update()
     {

@@ -21,8 +21,12 @@ public class Spawner : MonoBehaviour
     public Vector2 spawnRangeMin;
     public Vector2 spawnRangeMax;
 
+    PlayerLife playerLife;
+    int life;
+
     void Start()
     {
+        playerLife = FindObjectOfType<PlayerLife>();
         currentSpawnInterval = initialSpawnInterval;
         timeSinceLastDecrease = 0.0f;
         InvokeRepeating("SpawnObject", 0, currentSpawnInterval);
@@ -30,6 +34,12 @@ public class Spawner : MonoBehaviour
 
     void Update()
     {
+        life = playerLife.lifea(life);
+        if (life <= 0)
+        {
+            initialSpawnInterval = 1000000000.0f;
+            decreaseIntervalTime = 1000000000.0f;
+        }
         timeSinceLastDecrease += Time.deltaTime;
         if (timeSinceLastDecrease >= decreaseIntervalTime)
         {

@@ -26,8 +26,15 @@ public class ReflectorDirector : MonoBehaviour
     public AudioClip collisionBullet;
     AudioSource audioSource;
 
+    PlayerLife playerLife;
+
+    int life;
+
     void Start()
     {
+
+       
+        playerLife = FindObjectOfType<PlayerLife>();
         audioSource = GetComponent<AudioSource>();
         // プレハブのインスタンスを任意の初期位置に配置
         CreateInstanceAtInitialPosition();
@@ -35,6 +42,8 @@ public class ReflectorDirector : MonoBehaviour
 
     void Update()
     {
+        life = playerLife.lifea(life);
+
         if (isWaiting)
         {
             // 一時停止中はマウスの動きに反応しない
@@ -93,6 +102,11 @@ public class ReflectorDirector : MonoBehaviour
                 isMouseDown = true;
                 currentCollider.enabled = false; // マウスで持っている間はコライダーを無効化
             }
+        }
+
+        if (life <= 0)
+        {
+            Destroy(currentInstance);
         }
     }
 

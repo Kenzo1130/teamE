@@ -20,10 +20,14 @@ public class Ka_Bulletmove : MonoBehaviour
 
     Vector2 position;
 
+    PlayerLife playerLife;
+
+    int life;
 
     // Start is called before the first frame update
     void Start()
     {
+        playerLife = FindObjectOfType<PlayerLife>();
         Rigid = GetComponent<Rigidbody2D>();
         currentCollider = GetComponent<CircleCollider2D>();
         currentCollider.isTrigger = true;
@@ -32,13 +36,22 @@ public class Ka_Bulletmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Move();
+        life = playerLife.lifea(life);
 
-        position = transform.position;
-
-        if (!IsWithinValidArea(position))
+        if (life <= 0)
         {
             Destroy(gameObject);
+        }
+        else
+        {
+            Move();
+
+            position = transform.position;
+
+            if (!IsWithinValidArea(position))
+            {
+                Destroy(gameObject);
+            }
         }
     }
 
@@ -87,5 +100,13 @@ public class Ka_Bulletmove : MonoBehaviour
     private bool IsWithinValidArea(Vector3 position)
     {
         return validArea.Contains(new Vector2(position.x, position.y));
+    }
+    public void lifeBullet(int lifenow)
+    {
+        life = lifenow;
+        if (life <= 0)
+        {
+            Destroy(gameObject);
+        }
     }
 }
