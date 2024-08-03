@@ -32,10 +32,11 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public void AddScore(int amount)
+    public int AddScore(int amount)
     {
         score += amount;
         scoreText.text = "" + score;
+        return score;
     }
 
     public int ScoreA(int score)
