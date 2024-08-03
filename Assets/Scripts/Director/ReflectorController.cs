@@ -27,18 +27,24 @@ public class ReflectorController : MonoBehaviour
     }
 
     // 衝突検出メソッド
-    void OnCollisionEnter2D(Collision2D collision)
+    public void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.CompareTag(targetTag))
+        //if (collision.gameObject.CompareTag(targetTag))
+        //{
+        //    Debug.Log("b");
+        //    audioSource.PlayOneShot(collisionEnemy);
+        //    spawner.DestroyCurrentInstance();
+        //}
+    }
+
+    public void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag(targetTag))
         {
             audioSource.PlayOneShot(collisionEnemy);
             spawner.DestroyCurrentInstance();
         }
-    }
-
-    private void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.CompareTag(bullet))
+        else if (collision.gameObject.CompareTag(bullet))
         {
             audioSource.PlayOneShot(collisionBullet);
         }

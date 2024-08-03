@@ -177,6 +177,7 @@ public class ReflectorDirector : MonoBehaviour
             {
                 if (hitCollider.CompareTag(EnemyTag))
                 {
+                    audioSource.PlayOneShot(collisionEnemy);
                     DestroyCurrentInstance();
                     yield break;
                 }

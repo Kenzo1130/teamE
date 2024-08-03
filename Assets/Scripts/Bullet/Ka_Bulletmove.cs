@@ -48,13 +48,16 @@ public class Ka_Bulletmove : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag(targetTag))
+        if (gameObject.tag != "Bullet")
         {
-            direction = collision.transform.up;     //触れたオブジェクトに対して垂直に跳ね返る
-            Speed *= magnification;     //オブジェクトに触れた後はスピードが５倍の速さになる
-            // タグを変更
-            gameObject.tag = "Bullet";
-            currentCollider.isTrigger = false;
+            if (collision.gameObject.CompareTag(targetTag))
+            {
+                direction = collision.transform.up;     //触れたオブジェクトに対して垂直に跳ね返る
+                Speed *= magnification;     //オブジェクトに触れた後はスピードが５倍の速さになる
+                                            // タグを変更
+                gameObject.tag = "Bullet";
+                currentCollider.isTrigger = false;
+            }
         }
     }
     public void OnCollisionEnter2D(Collision2D collision)
