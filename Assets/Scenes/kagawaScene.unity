@@ -691,7 +691,7 @@ AudioSource:
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 0
@@ -1685,7 +1685,7 @@ MonoBehaviour:
     width: 16.6
     height: 20
   initialColliderSize: {x: 1, y: 1}
-  releaseColliderSize: {x: 4, y: 0.5}
+  releaseColliderSize: {x: 2, y: 0.1}
   SEspawn: {fileID: 8300000, guid: 98dd97b87816d164abaaa3a27e83aab6, type: 3}
   collisionEnemy: {fileID: 8300000, guid: d689e6c0cb08075459d2abaff1551b97, type: 3}
   collisionBullet: {fileID: 8300000, guid: 21f51370636d1da4b9a6b7705e78c023, type: 3}

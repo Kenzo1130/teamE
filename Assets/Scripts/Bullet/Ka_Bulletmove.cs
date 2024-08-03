@@ -8,7 +8,8 @@ public class Ka_Bulletmove : MonoBehaviour
     [SerializeField, Header("弾の威力")] float Power = 60; //弾の威力
     [SerializeField, Header("跳ね返りの強さ")] float magnification; //跳ね返った弾のスピードに掛ける倍率
 
-    private Rigidbody2D Rigid;
+    Rigidbody2D Rigid;
+    
     Vector3 direction = Vector3.down;
 
     public string targetTag = "Target";   // 衝突判定を行うタグ
@@ -54,7 +55,7 @@ public class Ka_Bulletmove : MonoBehaviour
             {
                 direction = collision.transform.up;     //触れたオブジェクトに対して垂直に跳ね返る
                 Speed *= magnification;     //オブジェクトに触れた後はスピードが５倍の速さになる
-                                            // タグを変更
+                // タグを変更
                 gameObject.tag = "Bullet";
                 currentCollider.isTrigger = false;
             }
