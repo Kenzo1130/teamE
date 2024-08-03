@@ -7,20 +7,26 @@ public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
     public Text scoreText;
-    private int score = 0;
+    int score = 0;
+    PlayerLife playerLife;
+    int life;
 
-    private void Start()
+    void Start()
     {
+        playerLife = FindObjectOfType<PlayerLife>();
         score = 0;
         scoreText.text = "" + score;
     }
     void Update()
     {
-        AddScore(score);
+        life = playerLife.lifea(life);
+        if (life <= 0)
+        {
+            AddScore(0);
+        }
     }
     void Awake()
     {
-
         if (instance == null)
         {
             instance = this;
@@ -32,15 +38,18 @@ public class ScoreManager : MonoBehaviour
         }
     }
 
-    public int AddScore(int amount)
+    public void AddScore(int amount)
     {
         score += amount;
         scoreText.text = "" + score;
-        return score;
+        if (life <= 0)
+        {
+            AddScore(score);
+        }
     }
 
-    public int ScoreA(int score)
+    public int GetScore(int x)
     {
-        return score;
+        return x;
     }
 }

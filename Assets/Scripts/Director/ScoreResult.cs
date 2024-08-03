@@ -20,20 +20,22 @@ public class ScoreResult : MonoBehaviour
         scoreManager = FindObjectOfType<ScoreManager>();
         playerLife = FindObjectOfType<PlayerLife>();
         Resultsocre.enabled = false;
-        score = 0;
-        Resultsocre.text = "" + score;
     }
 
     // Update is called once per frame
     void Update()
     {
-        life = playerLife.lifea(life);
-        score = scoreManager.AddScore(score);
+       Resultsocre.enabled = false;
+       life = playerLife.lifea(life);
+       score = scoreManager.GetScore(score);
 
         if (life <= 0)
         {
             Resultsocre.text = "" + score;
             Resultsocre.enabled = true;
+            
         }
     }
+
+    
 }
