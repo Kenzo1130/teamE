@@ -174,9 +174,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd17798eed7159468ae63264d629433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life:
-  - {fileID: 0}
   UI_Result: {fileID: 1867982697}
+  playerLife: {fileID: 0}
 --- !u!114 &35810607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -813,8 +812,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd17798eed7159468ae63264d629433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life: []
   UI_Result: {fileID: 1867982697}
+  playerLife: {fileID: 0}
 --- !u!114 &414607895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2106,9 +2105,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd17798eed7159468ae63264d629433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life:
-  - {fileID: 0}
   UI_Result: {fileID: 1867982697}
+  playerLife: {fileID: 0}
 --- !u!114 &820486753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2795,7 +2793,7 @@ MonoBehaviour:
   - {fileID: 1257575046}
   - {fileID: 535707522}
   - {fileID: 256429684}
-  playerLifeController: {fileID: 1137029890}
+  playerLife: {fileID: 1137029890}
 --- !u!114 &1137029890
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2817,7 +2815,6 @@ MonoBehaviour:
   textGameOver: {fileID: 55088354}
   DamageSound: {fileID: 0}
   HealSound: {fileID: 0}
-  life: 5
 --- !u!212 &1137029892
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -4511,13 +4508,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: afd17798eed7159468ae63264d629433, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Life:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
   UI_Result: {fileID: 1867982697}
+  playerLife: {fileID: 1137029890}
 --- !u!114 &1840497431
 MonoBehaviour:
   m_ObjectHideFlags: 0
