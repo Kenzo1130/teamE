@@ -106,7 +106,7 @@ public class ReflectorDirector : MonoBehaviour
 
         if (life <= 0)
         {
-            Destroy(currentInstance);
+            Destroy(gameObject);
         }
     }
 

@@ -33,17 +33,17 @@ public class GameOverScene : MonoBehaviour
     }
     void ResultGame()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         UI_Result.SetActive(true);
     }
     public void RetryButtonPress()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void ExitButtonPress()
     {
-        Time.timeScale = 1;
+        //Time.timeScale = 1;
         SceneManager.LoadScene("TitleScene");
     }
 }
