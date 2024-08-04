@@ -42,17 +42,16 @@ public class Ka_Bulletmove : MonoBehaviour
         {
             Destroy(gameObject);
         }
-        else
+        
+        Move();
+
+        position = transform.position;
+
+        if (!IsWithinValidArea(position))
         {
-            Move();
-
-            position = transform.position;
-
-            if (!IsWithinValidArea(position))
-            {
-                Destroy(gameObject);
-            }
+            Destroy(gameObject);
         }
+        
     }
 
     private void Move()
