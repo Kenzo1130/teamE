@@ -32,11 +32,11 @@ public class ReflectorDirector : MonoBehaviour
 
     void Start()
     {
-
+        playerLife = FindObjectOfType<PlayerLife>();
+        life = playerLife.lifea(life);
+        audioSource = GetComponent<AudioSource>();
         if (life > 0)
         {
-            playerLife = FindObjectOfType<PlayerLife>();
-            audioSource = GetComponent<AudioSource>();
             // プレハブのインスタンスを任意の初期位置に配置
             CreateInstanceAtInitialPosition();
         }
@@ -51,68 +51,69 @@ public class ReflectorDirector : MonoBehaviour
         {
             return;
         }
-
-        if (isWaiting)
+        else
         {
-            // 一時停止中はマウスの動きに反応しない
-            return;
-        }
-
-        if (isMouseDown && Input.GetMouseButton(0))
-        {
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0; // z座標を0に設定して2D平面上に固定
-
-            // プレハブの位置をマウスの位置に設定
-            currentInstance.transform.position = mousePosition;
-        }
-        else if (isMouseDown && Input.GetMouseButtonUp(0))
-        {
-            // マウスの左ボタンが離された時
-            isMouseDown = false;
-
-
-            // コライダーを有効化
-            if (currentCollider != null)
+            if (isWaiting)
             {
-                SetColliderSize(currentCollider, releaseColliderSize); // 離されたときのコライダーサイズを設定
-                currentCollider.enabled = true;
+                // 一時停止中はマウスの動きに反応しない
+                return;
             }
 
-            // 範囲内チェックを行い、範囲外なら初期位置に戻す
-            if (!IsWithinValidArea(currentInstance.transform.position))
+            if (isMouseDown && Input.GetMouseButton(0))
             {
-                StartCoroutine(ResetPositionAfterTime(0));  // 即座に初期位置に戻す
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.z = 0; // z座標を0に設定して2D平面上に固定
+
+                // プレハブの位置をマウスの位置に設定
+                currentInstance.transform.position = mousePosition;
             }
-            else
+            else if (isMouseDown && Input.GetMouseButtonUp(0))
             {
-                // プレハブを一定時間後に消去するコルーチンを開始
-                StartCoroutine(DestroyInstanceAfterTime(destroyTime));
+                // マウスの左ボタンが離された時
+                isMouseDown = false;
 
-                // コライダー有効化前の衝突チェックコルーチンを開始
-                StartCoroutine(CheckForCollisionBeforeEnableCollider());
 
-                // プレハブをリセットするコルーチンを開始
-                StartCoroutine(ResetPositionAfterTime(resetTime));
+                // コライダーを有効化
+                if (currentCollider != null)
+                {
+                    SetColliderSize(currentCollider, releaseColliderSize); // 離されたときのコライダーサイズを設定
+                    currentCollider.enabled = true;
+                }
+
+                // 範囲内チェックを行い、範囲外なら初期位置に戻す
+                if (!IsWithinValidArea(currentInstance.transform.position))
+                {
+                    StartCoroutine(ResetPositionAfterTime(0));  // 即座に初期位置に戻す
+                }
+                else
+                {
+                    // プレハブを一定時間後に消去するコルーチンを開始
+                    StartCoroutine(DestroyInstanceAfterTime(destroyTime));
+
+                    // コライダー有効化前の衝突チェックコルーチンを開始
+                    StartCoroutine(CheckForCollisionBeforeEnableCollider());
+
+                    // プレハブをリセットするコルーチンを開始
+                    StartCoroutine(ResetPositionAfterTime(resetTime));
+                }
+
+                audioSource.PlayOneShot(SEspawn); // マウスが離されたときのサウンド再生
+            }
+            else if (Input.GetMouseButtonDown(0))
+            {
+                // マウスの左ボタンが押された時
+                Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                mousePosition.z = 0; // z座標を0に設定して2D平面上に固定
+
+                // マウス位置がプレハブの範囲内にある場合のみ反応
+                if (currentCollider != null && currentCollider.OverlapPoint(mousePosition))
+                {
+                    isMouseDown = true;
+                    currentCollider.enabled = false; // マウスで持っている間はコライダーを無効化
+                }
             }
 
-            audioSource.PlayOneShot(SEspawn); // マウスが離されたときのサウンド再生
         }
-        else if (Input.GetMouseButtonDown(0))
-        {
-            // マウスの左ボタンが押された時
-            Vector3 mousePosition = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-            mousePosition.z = 0; // z座標を0に設定して2D平面上に固定
-
-            // マウス位置がプレハブの範囲内にある場合のみ反応
-            if (currentCollider != null && currentCollider.OverlapPoint(mousePosition))
-            {
-                isMouseDown = true;
-                currentCollider.enabled = false; // マウスで持っている間はコライダーを無効化
-            }
-        }
-
-        
     }
 
     // プレハブのインスタンスを任意の初期位置に配置する関数
