@@ -6,39 +6,39 @@ using UnityEngine.UI;
 
 public class ScoreResult : MonoBehaviour
 {
-    public static ScoreResult iNstance;
-    public Text scoreResult;
 
-    
+    [SerializeField] Text scoreResult;
+
+
     PlayerLife playerLife;
     int life;
+    float time;
     // Start is called before the first frame update
     void Start()
     {
-        
-        playerLife = FindObjectOfType<PlayerLife>();
+
         scoreResult.enabled = false;
+        //playerLife = FindObjectOfType<PlayerLife>();
     }
 
     // Update is called once per frame
     void Update()
     {
-       
-       life = playerLife.lifea(life);
-       
+        //time += Time.deltaTime;
+        //life = playerLife.lifea(life);
+        // Debug.Log(life);
+        // if (life == 0)
+        // {
+        //     scoreResult.enabled = true;
+        //     scoreResult.text = "" + ScoreManager.instance.GetScore();
+        //     return;
 
-        if (life <= 0)
-        {
-            scoreResult.text = "" + ScoreManager.instance.GetScore();
-            scoreResult.enabled = true;
-            return;
-            
-        }
-        else scoreResult.enabled = false;
+        // }
+        // //else
+        // //{
+        // //    scoreResult.enabled = false;
+        // //}
     }
 
-    public void HideText()
-    {
-        scoreResult.enabled = false; // テキストを非表示にする
-    }
+
 }

@@ -11,8 +11,12 @@ public class GameResult : MonoBehaviour
 
     int life;
 
-    public PlayerLife playerLife;
+    PlayerLife playerLife;
 
+    private void Start()
+    {
+        playerLife = FindObjectOfType<PlayerLife>();
+    }
     void Update()
     {
         life = playerLife.lifea(life);
@@ -25,7 +29,7 @@ public class GameResult : MonoBehaviour
 
     void ResultGame()
     {
-        Time.timeScale = 0;
+        //Time.timeScale = 0;
         UI_Result.SetActive(true);
     }
 
