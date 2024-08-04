@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 0}
 --- !u!114 &35810607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,6 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 0}
 --- !u!114 &414607895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,7 +1353,7 @@ MonoBehaviour:
   initialSpawnInterval: 15
   minSpawnInterval: 3
   intervalDecreaseRate: 0.2
-  decreaseIntervalTime: 100
+  decreaseIntervalTime: 1
   spawnRangeMin: {x: -16, y: 20}
   spawnRangeMax: {x: 16, y: 21}
 --- !u!114 &535422724
@@ -1776,7 +1778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7c1f036f18ef04eb77065622e47003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreResult: {fileID: 0}
+  scoreResult: {fileID: 1511225092}
 --- !u!1 &535707522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 0}
 --- !u!114 &820486753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3011,6 +3014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 0}
 --- !u!114 &1102373660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3243,7 +3247,7 @@ MonoBehaviour:
   - {fileID: 477579307}
   - {fileID: 1372414956}
   - {fileID: 414891034}
-  textGameOver: {fileID: 0}
+  textGameOver: {fileID: 55088354}
   DamageSound: {fileID: 8300000, guid: 335ba501d3631a94ea00227bfecef8a4, type: 3}
   HealSound: {fileID: 8300000, guid: 6c364f83e73f3ee4387362f0d9ab7740, type: 3}
 --- !u!212 &1137029892
@@ -4942,7 +4946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1511225091
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5593,6 +5597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 1511225092}
 --- !u!114 &1840497431
 MonoBehaviour:
   m_ObjectHideFlags: 0
