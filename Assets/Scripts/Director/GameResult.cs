@@ -35,7 +35,7 @@ public class GameResult : MonoBehaviour
 
     public void RetryButtonPress()
     {
-        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        SceneManager.LoadScene("Tani_testScene");
     }
     public void ExitButtonPress()
     {
