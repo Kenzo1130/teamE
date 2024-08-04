@@ -215,7 +215,6 @@ GameObject:
   - component: {fileID: 392136657}
   - component: {fileID: 392136656}
   - component: {fileID: 392136655}
-  - component: {fileID: 392136658}
   m_Layer: 5
   m_Name: Button (Legacy)
   m_TagString: Untagged
@@ -287,7 +286,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 392136658}
+      - m_Target: {fileID: 1282246012}
         m_TargetAssemblyTypeName: SceneChanger, Assembly-CSharp
         m_MethodName: TitleButtonPress
         m_Mode: 1
@@ -337,18 +336,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 392136653}
   m_CullTransparentMesh: 1
---- !u!114 &392136658
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 392136653}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 98ea5fd87e2a3c74db72c37994903f1d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &857474853
 GameObject:
   m_ObjectHideFlags: 0
@@ -405,7 +392,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -696221485
-  m_SortingLayer: 1
+  m_SortingLayer: 0
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: aba752da1ab125440987068c27fd79c1, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -614,6 +601,7 @@ GameObject:
   - component: {fileID: 1282246011}
   - component: {fileID: 1282246010}
   - component: {fileID: 1282246009}
+  - component: {fileID: 1282246012}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -695,6 +683,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1282246012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1282246008}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98ea5fd87e2a3c74db72c37994903f1d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1501474053
 GameObject:
   m_ObjectHideFlags: 0
