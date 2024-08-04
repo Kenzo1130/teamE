@@ -33,11 +33,14 @@ public class ReflectorDirector : MonoBehaviour
     void Start()
     {
 
+        if (life > 0)
+        {
+            playerLife = FindObjectOfType<PlayerLife>();
+            audioSource = GetComponent<AudioSource>();
+            // プレハブのインスタンスを任意の初期位置に配置
+            CreateInstanceAtInitialPosition();
+        }
        
-        playerLife = FindObjectOfType<PlayerLife>();
-        audioSource = GetComponent<AudioSource>();
-        // プレハブのインスタンスを任意の初期位置に配置
-        CreateInstanceAtInitialPosition();
     }
 
     void Update()

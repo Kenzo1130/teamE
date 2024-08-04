@@ -2,10 +2,12 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameOverScene : MonoBehaviour
 {
     [SerializeField] GameObject UI_Result;
+    public Text scoreText; // 非表示にするテキストを設定するための変数
 
     PlayerLife playerLife;
 
@@ -43,7 +45,7 @@ public class GameOverScene : MonoBehaviour
     {
         ScoreManager.instance.ResetScore();
 
-        ScoreResult.iNstance.HideText();
+        HideText();
         //Time.timeScale = 1;
         SceneManager.LoadScene("Tani_testScene");
     }
@@ -51,5 +53,9 @@ public class GameOverScene : MonoBehaviour
     {
         //Time.timeScale = 1;
         SceneManager.LoadScene("TitleScene");
+    }
+    private void HideText()
+    {
+        scoreText.enabled = false; // テキストを非表示にする
     }
 }
