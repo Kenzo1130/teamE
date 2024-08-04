@@ -1353,7 +1353,7 @@ MonoBehaviour:
   initialSpawnInterval: 15
   minSpawnInterval: 3
   intervalDecreaseRate: 0.2
-  decreaseIntervalTime: 10
+  decreaseIntervalTime: 1
   spawnRangeMin: {x: -16, y: 20}
   spawnRangeMax: {x: 16, y: 21}
 --- !u!114 &535422724
