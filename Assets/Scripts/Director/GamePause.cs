@@ -44,6 +44,6 @@ public class GamePause : MonoBehaviour
     }
     public void ExitButtonPress()
     {
-        SceneManager.LoadScene("Tani_testScene");
+        SceneManager.LoadScene("TitleScene");
     }
 }

@@ -11,6 +11,7 @@ public class GameOverScene : MonoBehaviour
 
     [SerializeField] Text scoreResult;
 
+    ScoreManager scoreManager;
 
     PlayerLife playerLife;
 
@@ -21,7 +22,7 @@ public class GameOverScene : MonoBehaviour
     bool targget = false;
     void Start()
     {
-        
+        scoreManager = FindObjectOfType<ScoreManager>();
         playerLife = FindObjectOfType<PlayerLife>();
         UI_Result.SetActive(false);
     }
@@ -66,7 +67,7 @@ public class GameOverScene : MonoBehaviour
         targget = true;
         UI_Result.SetActive(true);
         scoreResult.enabled = true;
-        scoreResult.text = "" + ScoreManager.instance.GetScore();
+        scoreResult.text = "" + scoreManager.GetScore();
         return;
     }
 

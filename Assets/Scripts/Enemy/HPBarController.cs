@@ -33,6 +33,8 @@ public class HPBarController : MonoBehaviour
     // 物体が消えたときに加算するスコア
     public int scoreValue = 10;
 
+    ScoreManager scoreManager;
+
     //効果音
     public AudioClip enemydeath;
     public AudioClip enemydamage;
@@ -45,6 +47,8 @@ public class HPBarController : MonoBehaviour
 
     void Start()
     {
+        scoreManager = FindObjectOfType<ScoreManager>();
+
         playerLife = FindObjectOfType<PlayerLife>();
 
         currentCollider = GetComponent<Collider2D>();
@@ -154,7 +158,7 @@ public class HPBarController : MonoBehaviour
         // 通常の死亡モーション
         //animator.SetTrigger("Die");
         // スコアを加算
-        ScoreManager.instance.AddScore(scoreValue);
+        scoreManager.AddScore(scoreValue);
 
         // 1秒後にオブジェクトを破壊
         Destroy(gameObject, 1f);
@@ -171,7 +175,7 @@ public class HPBarController : MonoBehaviour
         //animator.SetTrigger("Explode");
 
         // スコアを加算
-        ScoreManager.instance.AddScore(scoreValue);
+        scoreManager.AddScore(scoreValue);
 
         // 1秒後にオブジェクトを破壊
         Destroy(gameObject, 1f);
