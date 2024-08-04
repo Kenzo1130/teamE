@@ -1353,7 +1353,7 @@ MonoBehaviour:
   initialSpawnInterval: 15
   minSpawnInterval: 3
   intervalDecreaseRate: 0.2
-  decreaseIntervalTime: 1
+  decreaseIntervalTime: 10
   spawnRangeMin: {x: -16, y: 20}
   spawnRangeMax: {x: 16, y: 21}
 --- !u!114 &535422724
@@ -3247,7 +3247,7 @@ MonoBehaviour:
   - {fileID: 477579307}
   - {fileID: 1372414956}
   - {fileID: 414891034}
-  textGameOver: {fileID: 55088354}
+  textGameOver: {fileID: 0}
   DamageSound: {fileID: 8300000, guid: 335ba501d3631a94ea00227bfecef8a4, type: 3}
   HealSound: {fileID: 8300000, guid: 6c364f83e73f3ee4387362f0d9ab7740, type: 3}
 --- !u!212 &1137029892
@@ -4963,7 +4963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 50}
+  m_AnchoredPosition: {x: 2.6813, y: 96}
   m_SizeDelta: {x: 305.3625, y: 124.6968}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511225092
@@ -4988,7 +4988,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: cf1894da42cfd2a498d7d1909dc9ce8d, type: 3}
-    m_FontSize: 40
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -5189,8 +5189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -100.67, y: -25}
-  m_SizeDelta: {x: 293.6621, y: 50}
+  m_AnchoredPosition: {x: -146.83, y: -62.348}
+  m_SizeDelta: {x: 293.6621, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1632360241
 MonoBehaviour:
@@ -5214,7 +5214,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: cf1894da42cfd2a498d7d1909dc9ce8d, type: 3}
-    m_FontSize: 22
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
