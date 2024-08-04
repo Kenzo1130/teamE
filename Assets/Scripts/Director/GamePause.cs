@@ -8,6 +8,10 @@ public class GamePause : MonoBehaviour
     private bool Pause = false;
     [SerializeField] GameObject UI_Pause;
 
+    private void Start()
+    {
+        Time.timeScale = 1;
+    }
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -44,6 +48,8 @@ public class GamePause : MonoBehaviour
     }
     public void ExitButtonPress()
     {
+        
+        Pause = false;
         SceneManager.LoadScene("TitleScene");
     }
 }

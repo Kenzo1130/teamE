@@ -7,7 +7,7 @@ using UnityEngine.UIElements;
 public class PlayerLife : MonoBehaviour
 {
     public GameObject[] Life;
-    public GameObject textGameOver;
+    //public GameObject textGameOver;
     public AudioClip DamageSound;
     public AudioClip HealSound;
     AudioSource audioSource;
@@ -19,12 +19,13 @@ public class PlayerLife : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         life = Life.Length;
-        textGameOver.SetActive(false);
+        //textGameOver.SetActive(false);
     }
     void Update()
     {
         lifea(life);
 
+        Debug.Log(life);
         for (int i = 0; i < Life.Length; i++)
         {
             Life[i].SetActive(i < life);
@@ -58,7 +59,7 @@ public class PlayerLife : MonoBehaviour
 
     void ShowGameOver()
     {
-        textGameOver.SetActive(true);
+        //textGameOver.SetActive(true);
     }
     public void Heal(int healAmount)
     {
