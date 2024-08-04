@@ -175,6 +175,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 0}
 --- !u!114 &35810607
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -812,6 +813,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 0}
 --- !u!114 &414607895
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1351,7 +1353,7 @@ MonoBehaviour:
   initialSpawnInterval: 15
   minSpawnInterval: 3
   intervalDecreaseRate: 0.2
-  decreaseIntervalTime: 100
+  decreaseIntervalTime: 1
   spawnRangeMin: {x: -16, y: 20}
   spawnRangeMax: {x: 16, y: 21}
 --- !u!114 &535422724
@@ -1776,7 +1778,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7c1f036f18ef04eb77065622e47003, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreResult: {fileID: 0}
+  scoreResult: {fileID: 1511225092}
 --- !u!1 &535707522
 GameObject:
   m_ObjectHideFlags: 0
@@ -2308,6 +2310,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 0}
 --- !u!114 &820486753
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3011,6 +3014,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 0}
 --- !u!114 &1102373660
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4942,7 +4946,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1511225091
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4959,7 +4963,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -3, y: 50}
+  m_AnchoredPosition: {x: 2.6813, y: 96}
   m_SizeDelta: {x: 305.3625, y: 124.6968}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1511225092
@@ -4984,7 +4988,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: cf1894da42cfd2a498d7d1909dc9ce8d, type: 3}
-    m_FontSize: 40
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -5185,8 +5189,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 0.5}
   m_AnchorMax: {x: 1, y: 0.5}
-  m_AnchoredPosition: {x: -100.67, y: -25}
-  m_SizeDelta: {x: 293.6621, y: 50}
+  m_AnchoredPosition: {x: -146.83, y: -62.348}
+  m_SizeDelta: {x: 293.6621, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1632360241
 MonoBehaviour:
@@ -5210,7 +5214,7 @@ MonoBehaviour:
       m_Calls: []
   m_FontData:
     m_Font: {fileID: 12800000, guid: cf1894da42cfd2a498d7d1909dc9ce8d, type: 3}
-    m_FontSize: 22
+    m_FontSize: 60
     m_FontStyle: 0
     m_BestFit: 0
     m_MinSize: 0
@@ -5593,6 +5597,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   UI_Result: {fileID: 1867982697}
+  scoreResult: {fileID: 1511225092}
 --- !u!114 &1840497431
 MonoBehaviour:
   m_ObjectHideFlags: 0
