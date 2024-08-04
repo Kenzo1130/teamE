@@ -53,7 +53,7 @@ public class GameOverScene : MonoBehaviour
     public void RetryButtonPress()
     {
 
-        SceneManager.LoadScene("Ka_testScene");
+        SceneManager.LoadScene("Tani_testScene");
     }
     public void ExitButtonPress()
     {
