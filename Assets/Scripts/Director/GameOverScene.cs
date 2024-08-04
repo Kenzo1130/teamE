@@ -2,33 +2,42 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.SocialPlatforms.Impl;
 using UnityEngine.UI;
 
 public class GameOverScene : MonoBehaviour
 {
     [SerializeField] GameObject UI_Result;
-    public Text scoreText; // 非表示にするテキストを設定するための変数
+
+    [SerializeField] Text scoreResult;
+
 
     PlayerLife playerLife;
 
     int life;
 
-    ScoreResult scoreResult;
 
+
+    bool targget = false;
     void Start()
     {
-        scoreResult = FindObjectOfType<ScoreResult>();
+        
         playerLife = FindObjectOfType<PlayerLife>();
         UI_Result.SetActive(false);
     }
     void Update()
     {
-        
+
         life = playerLife.lifea(life);
 
         if (life <= 0)
         {
             ShowGameOver();
+            if (!targget)
+            {
+                Score();
+                return;
+            }
         }
     }
 
@@ -38,24 +47,27 @@ public class GameOverScene : MonoBehaviour
     }
     void ResultGame()
     {
-        //Time.timeScale = 0;
         UI_Result.SetActive(true);
+
     }
     public void RetryButtonPress()
     {
-        ScoreManager.instance.ResetScore();
 
-        HideText();
-        //Time.timeScale = 1;
-        SceneManager.LoadScene("Tani_testScene");
+        SceneManager.LoadScene("Ka_testScene");
     }
     public void ExitButtonPress()
     {
-        //Time.timeScale = 1;
+
         SceneManager.LoadScene("TitleScene");
     }
-    private void HideText()
+
+    void Score()
     {
-        scoreText.enabled = false; // テキストを非表示にする
+        targget = true;
+        UI_Result.SetActive(true);
+        scoreResult.enabled = true;
+        scoreResult.text = "" + ScoreManager.instance.GetScore();
+        return;
     }
+
 }

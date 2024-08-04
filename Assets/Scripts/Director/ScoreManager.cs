@@ -8,23 +8,14 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     public Text scoreText;
     int score = 0;
-    PlayerLife playerLife;
-    int life;
 
     void Start()
     {
-        playerLife = FindObjectOfType<PlayerLife>();
-        score = 0;
+
+
         scoreText.text = "" + score;
     }
-    void Update()
-    {
-        life = playerLife.lifea(life);
-        if (life <= 0)
-        {
-            AddScore(0);
-        }
-    }
+
     void Awake()
     {
         if (instance == null)
@@ -42,16 +33,13 @@ public class ScoreManager : MonoBehaviour
     {
         score += amount;
         scoreText.text = "" + score;
-        
+
     }
 
     public int GetScore()
     {
+        Debug.Log(score);
         return score;
     }
-    public void ResetScore()
-    {
-        score = 0;
-        Debug.Log("Score has been reset.");
-    }
+
 }
