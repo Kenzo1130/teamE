@@ -19,6 +19,6 @@ public class SceneChanger : MonoBehaviour
     }
     public void TitleButtonPress()
     {
-        SceneManager.LoadScene("SampleScene"); 
+        SceneManager.LoadScene("Tani_testScene"); 
     }
 }
