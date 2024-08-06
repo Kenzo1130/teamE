@@ -128,9 +128,13 @@ public class HPBarController : MonoBehaviour
     public void TakeDamage(float Emdamage)
     {
         float thresholdDamage = currentHP * EmdamageMultiplier;
+
         currentHP -= Emdamage;
+
         if (currentHP < 0) currentHP = 0;
+
         hpFillImage.fillAmount = currentHP / maxHP;
+
         if (currentHP <= 0 && Emdamage > thresholdDamage)
         {
             
@@ -148,6 +152,7 @@ public class HPBarController : MonoBehaviour
         {
             audioSource.PlayOneShot(enemydamage);
         }
+        
     }
     public float GetCurrentHP()
     {

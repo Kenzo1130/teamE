@@ -16,7 +16,11 @@ public class ReflectorDirector : MonoBehaviour
     public Vector2 initialColliderSize = new Vector2(1.0f, 1.0f); // 生成時のコライダーのサイズ
     public Vector2 releaseColliderSize = new Vector2(0.5f, 0.5f); // 離された時のコライダーのサイズ
 
+    public Color inactiveColor = Color.red; // コライダー無効時の色
+    private Color originalColor; // 元の色
+
     private GameObject currentInstance;   // 現在のプレハブインスタンス
+    private GameObject nextInstance;      // 次のプレハブインスタンス
     private bool isMouseDown = false;   // マウスが押されているかどうか
     private bool isWaiting = false;   // 一時停止中かどうか
     private Collider2D currentCollider;   // 現在のプレハブのコライダー
@@ -62,7 +66,7 @@ public class ReflectorDirector : MonoBehaviour
         }
         else if (isMouseDown && Input.GetMouseButtonUp(0))
         {
-            gameObject.tag = "Reflector";
+            currentInstance.tag = "Reflector";
 
             // マウスの左ボタンが離された時
             isMouseDown = false;
@@ -78,7 +82,7 @@ public class ReflectorDirector : MonoBehaviour
             if (!IsWithinValidArea(currentInstance.transform.position))
             {
                 StartCoroutine(ResetPositionAfterTime(0));  // 即座に初期位置に戻す
-                gameObject.tag = "Untagged";
+                currentInstance.tag = "Untagged";
             }
             else
             {
@@ -93,6 +97,9 @@ public class ReflectorDirector : MonoBehaviour
             }
 
             audioSource.PlayOneShot(SEspawn); // マウスが離されたときのサウンド再生
+
+            // 次のプレハブを生成位置に配置し、コライダーを無効にする
+            PrepareNextInstance();
         }
         else if (Input.GetMouseButtonDown(0))
         {
@@ -121,22 +128,82 @@ public class ReflectorDirector : MonoBehaviour
     {
         if (prefabs.Length == 0) return;
 
-        // ランダムにプレハブを選択
-        GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
-        currentInstance = Instantiate(prefab);
-        currentInstance.transform.position = initialPosition;
-
-        currentCollider = currentInstance.GetComponent<Collider2D>();
-        if (currentCollider != null)
+        // 次のプレハブが存在する場合はそれを使う
+        if (nextInstance != null)
         {
-            // 生成時のコライダーサイズを設定
-            SetColliderSize(currentCollider, initialColliderSize);
-            currentCollider.enabled = true; // 初期状態でコライダーを有効化
+            currentInstance = nextInstance;
+            currentInstance.transform.position = initialPosition;
+
+            currentCollider = currentInstance.GetComponent<Collider2D>();
+            if (currentCollider != null)
+            {
+                // 生成時のコライダーサイズを設定
+                SetColliderSize(currentCollider, initialColliderSize);
+                currentCollider.enabled = true; // 初期状態でコライダーを有効化
+            }
+
+            ResetNextInstanceColor(); // 次のプレハブの色を元に戻す
+            nextInstance = null; // 次のプレハブをリセット
+        }
+        else
+        {
+            // ランダムにプレハブを選択
+            GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
+            currentInstance = Instantiate(prefab);
+            currentInstance.transform.position = initialPosition;
+
+            currentCollider = currentInstance.GetComponent<Collider2D>();
+            if (currentCollider != null)
+            {
+                // 生成時のコライダーサイズを設定
+                SetColliderSize(currentCollider, initialColliderSize);
+                currentCollider.enabled = true; // 初期状態でコライダーを有効化
+            }
         }
 
         // 衝突処理を担当するコンポーネントを追加
         ReflectorController collisionHandler = currentInstance.AddComponent<ReflectorController>();
         collisionHandler.Initialize(this, EnemyTag, bullet, spbullet, collisionEnemy, collisionBullet, audioSource);
+    }
+
+    private void PrepareNextInstance()
+    {
+        if (prefabs.Length == 0) return;
+
+        // ランダムにプレハブを選択
+        GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
+        nextInstance = Instantiate(prefab);
+        nextInstance.transform.position = initialPosition;
+
+        Collider2D nextCollider = nextInstance.GetComponent<Collider2D>();
+        if (nextCollider != null)
+        {
+            // コライダーを無効化
+            nextCollider.enabled = false;
+            ChangeNextInstanceColor(inactiveColor); // 次のプレハブの色を無効色に変更
+        }
+    }
+
+    private void ChangeNextInstanceColor(Color color)
+    {
+        Renderer renderer = nextInstance.GetComponent<Renderer>();
+        if (renderer != null)
+        {
+            originalColor = renderer.material.color; // 元の色を保存
+            renderer.material.color = color; // 新しい色を設定
+        }
+    }
+
+    private void ResetNextInstanceColor()
+    {
+        if (nextInstance != null)
+        {
+            Renderer renderer = nextInstance.GetComponent<Renderer>();
+            if (renderer != null)
+            {
+                renderer.material.color = originalColor; // 元の色に戻す
+            }
+        }
     }
 
     private void SetColliderSize(Collider2D collider, Vector2 size)

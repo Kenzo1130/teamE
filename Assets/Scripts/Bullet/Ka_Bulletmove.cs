@@ -36,6 +36,7 @@ public class Ka_Bulletmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(Power);
         life = playerLife.lifea(life);
 
         if (life <= 0)
@@ -61,6 +62,7 @@ public class Ka_Bulletmove : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
+        HPBarController controller = collision.gameObject.GetComponent<HPBarController>();
         if (gameObject.tag != "Bullet")
         {
             if (collision.gameObject.CompareTag(targetTag))
@@ -69,31 +71,29 @@ public class Ka_Bulletmove : MonoBehaviour
                 Speed *= magnification;     //オブジェクトに触れた後はスピードが５倍の速さになる
                 // タグを変更
                 gameObject.tag = "Bullet";
-                currentCollider.isTrigger = false;
+               
             }
         }
-    }
-    public void OnCollisionEnter2D(Collision2D collision)
-    {
-        HPBarController controller = collision.gameObject.GetComponent<HPBarController>();
         if (gameObject.tag == "Bullet")
         {
             if (collision.gameObject.CompareTag("Enemy"))
             {
-               
+
                 controller.TakeDamage(Power);
 
                 // ダメージを与えた後にHPが0以下になった場合、弾を貫通させる
                 if (controller.GetCurrentHP() <= 0)
                 {
-                    // 弾を貫通させるため、衝突を無視
-                    Physics2D.IgnoreCollision(collision.collider, GetComponent<Collider2D>());
                     return;
                 }
                 Destroy(gameObject);
             }
         }
 
+    }
+    public void OnCollisionEnter2D(Collision2D collision)
+    {
+        
     }
     //物体が任意の範囲内にあるかどうかをチェックする関数
     private bool IsWithinValidArea(Vector3 position)
@@ -107,5 +107,10 @@ public class Ka_Bulletmove : MonoBehaviour
         {
             Destroy(gameObject);
         }
+    }
+
+    public void DamageCount(int damage)
+    {
+        Power += damage;
     }
 }
