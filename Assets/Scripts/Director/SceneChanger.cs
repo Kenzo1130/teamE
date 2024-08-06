@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class SceneChanger : MonoBehaviour
 {
+
+    public string Scene = "Scene";
     // Start is called before the first frame update
     void Start()
     {
@@ -19,6 +21,6 @@ public class SceneChanger : MonoBehaviour
     }
     public void TitleButtonPress()
     {
-        SceneManager.LoadScene("Tani_testScene"); 
+        SceneManager.LoadScene(Scene); 
     }
 }

@@ -25,7 +25,6 @@ public class PlayerLife : MonoBehaviour
     {
         lifea(life);
 
-        Debug.Log(life);
         for (int i = 0; i < Life.Length; i++)
         {
             Life[i].SetActive(i < life);
