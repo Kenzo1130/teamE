@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -8148232358139652952}
   m_Layer: 0
   m_Name: MagicReflector _s3
-  m_TagString: Reflector
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: 3278226947240328759}
   m_Layer: 0
   m_Name: MagicReflector _L1
-  m_TagString: Reflector
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

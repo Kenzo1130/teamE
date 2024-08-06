@@ -53,7 +53,6 @@ public class GameOverScene : MonoBehaviour
     }
     public void RetryButtonPress()
     {
-        Debug.Log("a");
         SceneManager.LoadScene(SceneManager.GetActiveScene().name);
     }
     public void ExitButtonPress()

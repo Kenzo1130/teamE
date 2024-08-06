@@ -39,14 +39,17 @@ public class ReflectorController : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag(targetTag))
+        if (gameObject.tag == "Reflector")
         {
-            audioSource.PlayOneShot(collisionEnemy);
-            spawner.DestroyCurrentInstance();
-        }
-        else if (collision.gameObject.CompareTag(bullet))
-        {
-            audioSource.PlayOneShot(collisionBullet);
+            if (collision.CompareTag(targetTag))
+            {
+                audioSource.PlayOneShot(collisionEnemy);
+                spawner.DestroyCurrentInstance();
+            }
+            else if (collision.gameObject.CompareTag(bullet))
+            {
+                audioSource.PlayOneShot(collisionBullet);
+            }
         }
     }
 }

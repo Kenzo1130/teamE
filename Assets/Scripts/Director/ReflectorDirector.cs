@@ -12,9 +12,9 @@ public class ReflectorDirector : MonoBehaviour
     public string bullet = "Bullet";       // 無視するタグ
     public string spbullet = "SpBullet";       // 無視するタグ
     public Rect validArea;    // 任意の範囲
+    public Rect mouseClickArea; // マウスが押されてもプレハブを移動させる範囲
     public Vector2 initialColliderSize = new Vector2(1.0f, 1.0f); // 生成時のコライダーのサイズ
     public Vector2 releaseColliderSize = new Vector2(0.5f, 0.5f); // 離された時のコライダーのサイズ
-
 
     private GameObject currentInstance;   // 現在のプレハブインスタンス
     private bool isMouseDown = false;   // マウスが押されているかどうか
@@ -27,7 +27,6 @@ public class ReflectorDirector : MonoBehaviour
     AudioSource audioSource;
 
     PlayerLife playerLife;
-
     int life;
 
     void Start()
@@ -63,11 +62,10 @@ public class ReflectorDirector : MonoBehaviour
         }
         else if (isMouseDown && Input.GetMouseButtonUp(0))
         {
-
+            gameObject.tag = "Reflector";
 
             // マウスの左ボタンが離された時
             isMouseDown = false;
-
 
             // コライダーを有効化
             if (currentCollider != null)
@@ -80,6 +78,7 @@ public class ReflectorDirector : MonoBehaviour
             if (!IsWithinValidArea(currentInstance.transform.position))
             {
                 StartCoroutine(ResetPositionAfterTime(0));  // 即座に初期位置に戻す
+                gameObject.tag = "Untagged";
             }
             else
             {
@@ -107,9 +106,14 @@ public class ReflectorDirector : MonoBehaviour
                 isMouseDown = true;
                 currentCollider.enabled = false; // マウスで持っている間はコライダーを無効化
             }
+            // mouseClickArea にも反応させる
+            else if (mouseClickArea.Contains(new Vector2(mousePosition.x, mousePosition.y)))
+            {
+                isMouseDown = true;
+                currentInstance.transform.position = mousePosition; // プレハブの位置をマウスの位置に設定
+                currentCollider.enabled = false; // コライダーを無効化
+            }
         }
-
-        
     }
 
     // プレハブのインスタンスを任意の初期位置に配置する関数
@@ -121,9 +125,6 @@ public class ReflectorDirector : MonoBehaviour
         GameObject prefab = prefabs[Random.Range(0, prefabs.Length)];
         currentInstance = Instantiate(prefab);
         currentInstance.transform.position = initialPosition;
-
-        // コライダーを適切なサイズに設定
-        SetColliderSize(currentCollider, releaseColliderSize);
 
         currentCollider = currentInstance.GetComponent<Collider2D>();
         if (currentCollider != null)
@@ -140,7 +141,6 @@ public class ReflectorDirector : MonoBehaviour
 
     private void SetColliderSize(Collider2D collider, Vector2 size)
     {
-
         if (collider is BoxCollider2D boxCollider)
         {
             boxCollider.size = size; // BoxColliderのサイズを設定
@@ -150,9 +150,7 @@ public class ReflectorDirector : MonoBehaviour
             circleCollider.radius = size.x / 2; // CircleColliderの半径を設定
         }
         // 他のコライダータイプもここで設定できます
-
     }
-
 
     // 一定時間後にプレハブを元の位置に戻すコルーチン
     private IEnumerator ResetPositionAfterTime(float time)
