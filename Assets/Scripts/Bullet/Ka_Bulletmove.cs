@@ -36,7 +36,6 @@ public class Ka_Bulletmove : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(Power);
         life = playerLife.lifea(life);
 
         if (life <= 0)
