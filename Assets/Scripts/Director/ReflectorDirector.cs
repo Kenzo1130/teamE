@@ -94,12 +94,12 @@ public class ReflectorDirector : MonoBehaviour
 
                 // プレハブをリセットするコルーチンを開始
                 StartCoroutine(ResetPositionAfterTime(resetTime));
+
+                // 次のプレハブを生成
+                PrepareNextInstance();
             }
 
             audioSource.PlayOneShot(SEspawn); // マウスが離されたときのサウンド再生
-
-            // 次のプレハブを生成位置に配置し、コライダーを無効にする
-            PrepareNextInstance();
         }
         else if (Input.GetMouseButtonDown(0))
         {
@@ -168,6 +168,12 @@ public class ReflectorDirector : MonoBehaviour
 
     private void PrepareNextInstance()
     {
+        // 現在のプレハブが validArea の範囲内でない場合は次のプレハブを生成しない
+        if (!IsWithinValidArea(currentInstance.transform.position))
+        {
+            return; // 次のプレハブを生成しない
+        }
+
         if (prefabs.Length == 0) return;
 
         // ランダムにプレハブを選択
