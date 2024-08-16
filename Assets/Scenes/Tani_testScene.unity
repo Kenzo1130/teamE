@@ -1049,7 +1049,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!212 &473667366
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1099,7 +1099,7 @@ SpriteRenderer:
   m_Size: {x: 10.007285, y: 50.73}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
+  m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!4 &473667367
@@ -1321,9 +1321,9 @@ MonoBehaviour:
     spawnProbability: 0.3
   - prefab: {fileID: 6745454467934779246, guid: 6b776165598d2b447b745223dc606155, type: 3}
     spawnProbability: 0.08
-  initialSpawnInterval: 15
-  minSpawnInterval: 3
-  intervalDecreaseRate: 0.2
+  initialSpawnInterval: 100
+  minSpawnInterval: 50
+  intervalDecreaseRate: 0.1
   decreaseIntervalTime: 1
   spawnRangeMin: {x: -16, y: 20}
   spawnRangeMax: {x: 16, y: 21}
@@ -5173,7 +5173,7 @@ SpriteRenderer:
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: -74234493
-  m_SortingLayer: 0
+  m_SortingLayer: -2
   m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 2c0d484cd2405ea4f9faccc21a46c56f, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
