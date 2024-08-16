@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: -79899833578583442}
   - component: {fileID: 2402791967823021101}
   - component: {fileID: 2095382705799257775}
+  - component: {fileID: -8840458790518460109}
   m_Layer: 0
   m_Name: Ka_Item
   m_TagString: Item
@@ -173,3 +174,17 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 1}
   m_EdgeRadius: 0
+--- !u!114 &-8840458790518460109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350186137172460854}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6adb9c21dc34c3e4b93fb7e8a7fe0edf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  healAmount: 1
+  targetTag: Player
