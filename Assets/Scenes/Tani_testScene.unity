@@ -1321,10 +1321,10 @@ MonoBehaviour:
     spawnProbability: 0.3
   - prefab: {fileID: 6745454467934779246, guid: 6b776165598d2b447b745223dc606155, type: 3}
     spawnProbability: 0.08
-  initialSpawnInterval: 100
-  minSpawnInterval: 50
+  initialSpawnInterval: 5
+  minSpawnInterval: 1
   intervalDecreaseRate: 0.1
-  decreaseIntervalTime: 1
+  decreaseIntervalTime: 30
   spawnRangeMin: {x: -16, y: 20}
   spawnRangeMax: {x: 16, y: 21}
 --- !u!114 &535422724
